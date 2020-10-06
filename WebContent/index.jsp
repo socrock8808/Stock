@@ -9,28 +9,40 @@
 </head>
 <body class="a">
 	<div class="second-content">
-		<a href="http://localhost:8080/Stock/LoadArticle">討論板</a>
+		<%	//討論版顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a href='http://localhost:8080/Stock/LoadArticle'>討論板</a>");
+		%>
 	</div>
 	<div class="third-content">
-		<a class="section-item" href="links/user_signup.jsp"
-			style="margin-left: 300">註冊</a> 
-		<a class="section-item" id="member"
-			href="links/user_login.jsp">登入</a>
-		<a href="http://localhost:8080/Stock/User_res">會員管理</a>
-
-		<%
+		<%	//註冊、登入顯示判斷
+			if (session.getAttribute("Login") == null)
+			{
+				out.print("<a class='section-item' href='links/user_signup.jsp' style='margin-left: 300'>註冊</a> ");
+				out.print("<a class='section-item' id='member' href='links/user_login.jsp'>登入</a>");
+			}
+		%>
+		<%	//會員管理顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a href='http://localhost:8080/Stock/User_res'>會員管理</a>");
+		%>
+		<%	//股票查詢結果顯示判斷
 			if (session.getAttribute("InqResult") != null)
 				out.print("<p style='color:red'>" + session.getAttribute("InqResult") + "</p>");
 			session.removeAttribute("InqResult");
 		%>
-		<%
+		<%	//使用者名稱顯示判斷
 			if (session.getAttribute("Login") != null)
 				out.print("<p style='color:red'>" + session.getAttribute("Login") + "</p>");
 		%>
 	</div>
 	<div class="fuorth-content">
-		<a class="section-item" href="http://localhost:8080/Stock/Logout"
-			style="margin-left: 300">登出</a>
+		<%	//登出顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a class='section-item'"
+							+"href='http://localhost:8080/Stock/Logout'"
+							+"style='margin-left: 300'>登出</a>");
+		%>
 	</div>
 	<div id="header" style="text-align: center">
 		<h1>股票查詢</h1>
