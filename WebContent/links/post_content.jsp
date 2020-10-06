@@ -27,6 +27,7 @@
 				<td align="center"><%=request.getParameter("User_Name") %></td>
 			</tr>
 		</table>
+		<h3>瀏覽人數：<%=request.getParameter("arti_viewNum")%></h3>
 	</div>
 	<div>
 	<p>回覆文章</p>

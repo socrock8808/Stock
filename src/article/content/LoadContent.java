@@ -26,10 +26,12 @@ public class LoadContent extends HttpServlet {
 		int arti_id = Integer.parseInt(request.getParameter("arti_id"));
 		String path = "links/post_content.jsp";
 		
+		int num = Integer.parseInt(con.getArticleData("arti_viewNum", arti_id))+1;
+		con.updateViewNum(num, arti_id);
 		String title = URLEncoder.encode(con.getArticleData("arti_title", arti_id), "utf-8");
 		String content = URLEncoder.encode(con.getArticleData("arti_txt", arti_id), "utf-8");
 		String user = URLEncoder.encode(con.getUserDataWithAricle("User_Name", arti_id), "utf-8");
-		path += "?arti_title="+title+"&arti_txt="+content+"&User_Name="+user;
+		path += "?arti_title="+title+"&arti_txt="+content+"&User_Name="+user+"&arti_viewNum="+num;
 		response.sendRedirect(path);
 		
 	}

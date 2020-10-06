@@ -228,6 +228,14 @@ public class ConMysql{
 			e.printStackTrace();
 			System.out.print("sucess");
 		}
-
+	}
+	/*新增文章觀看人數進資料庫*/
+	public void updateViewNum(int viewNum, int arti_id) {
+		try {
+			stat.execute("update article set arti_viewNum = '"+viewNum+"' where arti_id="+arti_id+";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.print("sucess");
+		}
 	}
 }
