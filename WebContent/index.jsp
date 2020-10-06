@@ -16,6 +16,7 @@
 			style="margin-left: 300">註冊</a> 
 		<a class="section-item" id="member"
 			href="links/user_login.jsp">登入</a>
+		<a href="http://localhost:8080/Stock/User_res">會員管理</a>
 
 		<%
 			if (session.getAttribute("InqResult") != null)

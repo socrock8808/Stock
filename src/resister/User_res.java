@@ -26,7 +26,7 @@ public class User_res extends HttpServlet {
 		HttpSession session=request.getSession();
 		PrintWriter out = response.getWriter();
 		ConMysql con = new ConMysql();
-		String username = request.getParameter("User_id");
+		String username = (String) session.getAttribute("account");
 		//String username="lan";
 		con.conDb();//連接資料庫
 		String User_Account = username;
@@ -35,11 +35,12 @@ public class User_res extends HttpServlet {
 		String User_Gender = con.getUserData("User_Gender", username);
 		String User_Email = con.getUserData("User_Email", username);
 		String User_Birthday = con.getUserData("User_Birthday", username);
-		session.setAttribute("username", username);
-		String path = "sign_result.jsp?User_Accoun="+User_Account+"&User_Password="
-				+User_Password+"&User_Name="+User_Name+"&User_Gender="+User_Gender
+		session.setAttribute("User_Name", User_Name);
+		String path = "links/sign_result.jsp?User_Account="+User_Account+"&User_Password="
+				+User_Password+"&User_Gender="+User_Gender
 				+"&User_Email="+User_Email+"&User_Birthday="+User_Birthday;
-		request.getRequestDispatcher(path).forward(request, response);
+//		request.getRequestDispatcher(path).forward(request, response);
+		response.sendRedirect(path);
 	}
 
 	

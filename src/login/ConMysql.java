@@ -214,6 +214,20 @@ public class ConMysql{
 		} catch (SQLException e) {
 			System.out.print("sql執行失敗");
 		}
-		
+	}
+	/*新增使用者資料進資料庫*/
+	public void insert_signup(String account, String upassword, String name, String uGender, String email,
+			String birthday) {
+		try {
+			stat.execute(
+					"insert into user(User_Account,User_password,User_name,User_Gender,User_Email,User_Birthday) values('"
+							+ account + "','" + upassword + "','" + name + "','" + uGender + "','" + email + "','"
+							+ birthday + "')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.print("sucess");
+		}
+
 	}
 }

@@ -41,7 +41,7 @@ public class Controller extends HttpServlet {
 			{
 				path=SuccessPath;
 				session.setAttribute("UID", con.getUserData("User_id", getur));
-				session.setAttribute("id",con.getUserData("User_Account",getur));
+				session.setAttribute("account",con.getUserData("User_Account",getur));
 				session.setAttribute("right",con.getUserData("Account_right",getur));//權限
 				session.setAttribute("Login",con.getUserData("User_Name",getur));
 				response.sendRedirect(path);

@@ -29,6 +29,7 @@ public class UpdateUser extends HttpServlet {
 		int User_id = Integer.parseInt((String)session.getAttribute("UID"));
 		con.updateUser(User_Name, User_Password, User_Email, User_id);
 		String path="User_res?User_id="+User_id;
+		session.setAttribute("User_Name", User_Name);
 		response.sendRedirect(path);
 	}
 
