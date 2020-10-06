@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>留言板</title>
+	<script type="text/javascript">
+		function check_art() {
+			var chk;
+			chk = document.article.art_name;
+			if(chk.getAttribute != ""){
+				document.article.submit();
+			}
+			else {
+				document.location.href="myform.html";
+			}
+		}
+	</script>
+</head>
+
+<body>
+<div class="#">
+<a href="index.jsp">回首頁</a>
+</div>
+	<form method="post" action="writeFile.jsp" name="article">
+		<a>標題:</a><br>
+		<input class="article" type="text" name="art_name" size="40"><p></p>
+		文章內容:<br>
+    	<textarea class="article" name="art_data" rows="18" cols="50">
+		</textarea><p></p>
+    	<input type="submit" value="傳送" onClick="check_art">
+		<input type="reset" value="重填"><p></p>
+	</form>
+</body>
+</html>
