@@ -18,25 +18,34 @@
 		<a href="board.jsp" class="#">回到討論板</a>
 	</div>
 	<div>
-		<table border="1" class="art_content" style="width: 600px">
+		<a href="#" class="#">文章編輯</a>
+	</div>
+	<div>
+		<table border="0" class="art_content" style="width: 600px">
 			<tr>
 				<td width="900rem" colspan="2" align="center"><%=request.getParameter("arti_title") %></td>
 			</tr>
 			<tr>
-				<td width="80%"><%=request.getParameter("arti_txt") %></td>
 				<td align="center"><%=request.getParameter("User_Name") %></td>
 			</tr>
+			<tr>
+				<td align="center">最後更新時間</td>
+				<td>瀏覽人數：<%=request.getParameter("arti_viewNum")%></td>
+			</tr>
+			<tr>
+				<td width="80%"><%=request.getParameter("arti_txt") %></td>
+			</tr>
+			
 		</table>
-		<h3>瀏覽人數：<%=request.getParameter("arti_viewNum")%></h3>
 	</div>
-	<div>
+	<!-- <div>
 	<p>回覆文章</p>
 		<form>
 			<textarea cols="50" rows="10"></textarea>
 			<br> <input type="submit" value="送出" action="#" /> <input
 				type="reset" value="清除">
 		</form>
-	</div>
+	</div> -->
 
 </body>
 </html>
