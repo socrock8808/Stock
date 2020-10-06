@@ -202,4 +202,18 @@ public class ConMysql{
 		}
 		
 	}
+	
+	/*更新使用者資料*/
+	public void updateUser(String name,String psd,String mail,int id) {
+		/*執行指令*/
+		sql =   "update user " + 
+				"set User_Name='"+name+"',User_Password='"+psd+"',User_Email='"+mail+"'" + 
+				"where User_id="+id+";";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		
+	}
 }
