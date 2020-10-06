@@ -53,6 +53,7 @@
 	<%  
 		int lastestId = (int)session.getAttribute("LastestId");
 		int id = (int)session.getAttribute("id");
+		int count = (int)session.getAttribute("ArtiCount")%10;
 		if( id < (lastestId-10))
 		{%>
 			<a href="http://localhost:8080/Stock/FirstArticle">第一頁</a>
@@ -60,7 +61,7 @@
 	<%	}%>
 	<a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	<%  
-		if( id >= 9)
+		if( id >= count)
 		{%>
 			<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
 			<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
