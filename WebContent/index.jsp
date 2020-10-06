@@ -5,7 +5,7 @@
 <head>
 <title>股票分析</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="files/css/#">
+<link rel="stylesheet" href="files/css/main.css">
 </head>
 <body class="a">
 	<div class="second-content">
@@ -35,8 +35,6 @@
 			if (session.getAttribute("Login") != null)
 				out.print("<p style='color:red'>" + session.getAttribute("Login") + "</p>");
 		%>
-	</div>
-	<div class="fuorth-content">
 		<%	//登出顯示判斷
 			if (session.getAttribute("Login") != null)
 				out.print("<a class='section-item'"
@@ -51,16 +49,9 @@
 
 	<form id="signup-form" method="GET"
 		action="http://localhost:8080/Stock/InqStock">
-		<input type="stock" name="stock" id="stock" placeholder="股票名稱或股票代號" />
+		<input type="text" name="stock" id="stock" style="margin: 0px auto" placeholder="股票名稱或股票代號" />
 		<input type="submit" value="查詢" />
 	</form>
-	<!-- 	<form id="signup-form" method="GET" action="http://localhost:8080/Stock/InqStock">
-		<input type="stock" name="stock" id="stock" placeholder="股票名稱或股票代號" />
-		<input type="submit" value="查詢"  />
-	</form>
-	研究一下div能不能當成form來用 -->
-
-	<script src="files/js/#"></script>
-
+	<script src="files/js/main.js"></script>
 </body>
 </html>
