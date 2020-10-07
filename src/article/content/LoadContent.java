@@ -31,7 +31,10 @@ public class LoadContent extends HttpServlet {
 		String title = URLEncoder.encode(con.getArticleData("arti_title", arti_id), "utf-8");
 		String content = URLEncoder.encode(con.getArticleData("arti_txt", arti_id), "utf-8");
 		String user = URLEncoder.encode(con.getUserDataWithAricle("User_Name", arti_id), "utf-8");
-		path += "?arti_title="+title+"&arti_txt="+content+"&User_Name="+user+"&arti_viewNum="+num;
+		String time = URLEncoder.encode(con.getArticleData("arti_update", arti_id), "utf-8");
+		path += "?arti_title="+title+"&arti_txt="+content
+				+"&User_Name="+user+"&arti_viewNum="+num
+				+"&arti_update="+time;
 		response.sendRedirect(path);
 		
 	}

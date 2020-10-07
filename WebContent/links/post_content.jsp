@@ -29,7 +29,7 @@
 				<td align="center"><%=request.getParameter("User_Name") %></td>
 			</tr>
 			<tr>
-				<td align="center">最後更新時間</td>
+				<td align="center"><%=request.getParameter("arti_update") %></td>
 				<td>瀏覽人數：<%=request.getParameter("arti_viewNum")%></td>
 			</tr>
 			<tr>
