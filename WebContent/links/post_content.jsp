@@ -26,14 +26,14 @@
 				<td width="900rem" colspan="2" align="center"><%=request.getParameter("arti_title") %></td>
 			</tr>
 			<tr>
-				<td align="center"><%=request.getParameter("User_Name") %></td>
+				<td align="center">作者：<%=request.getParameter("User_Name") %></td>
 			</tr>
 			<tr>
-				<td align="center"><%=request.getParameter("arti_update") %></td>
+				<td align="center">最後更新時間：<%=request.getParameter("arti_update") %></td>
 				<td>瀏覽人數：<%=request.getParameter("arti_viewNum")%></td>
 			</tr>
 			<tr>
-				<td width="80%"><%=request.getParameter("arti_txt") %></td>
+				<td width="80%">內文：<%=request.getParameter("arti_txt") %></td>
 			</tr>
 			
 		</table>
