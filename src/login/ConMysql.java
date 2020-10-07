@@ -251,7 +251,16 @@ public class ConMysql{
 		}
 		return result;
 	}
-	
+	/*新增自選股進資料庫*/
+	public void addSelfStock(String stock_id,String User_id) {
+		/*執行指令*/
+		sql =  "insert into stock_self values('"+stock_id+"','"+User_id+"');";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
 	/*新增文章近資料庫*/
 	public void addArticle(String title,String content,int id) {
 		/*執行指令*/
@@ -262,7 +271,6 @@ public class ConMysql{
 		} catch (SQLException e) {
 			System.out.print("sql執行失敗");
 		}
-		
 	}
 	/*更新文章近資料庫*/
 	public void updateArticle(String title,String content,int id) {
