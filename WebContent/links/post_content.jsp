@@ -15,7 +15,14 @@
 		<a href="http://localhost:8080/Stock/Logout">登出</a>
 	</div>
 	<div>
-		<a href="board.jsp" class="#">回到討論板</a>
+		<%
+			String back = "";
+			if(session.getAttribute("LastestArticle") != null)
+				back = "board.jsp";
+			else
+				back = "http://localhost:8080/Stock/LoadArticle";
+		%>
+		<a href="<%=back%>" class="#">回到討論板</a>
 	</div>
 	<div>
 		<%

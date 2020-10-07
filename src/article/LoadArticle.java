@@ -55,6 +55,7 @@ public class LoadArticle extends HttpServlet {
 			}
 			session.setAttribute("arti_count", 10);
 		}
+		session.setAttribute("LastestArticle", "");
 		session.setAttribute("id", id);
 		session.setAttribute("array", arti);
 		//request.getRequestDispatcher(path).forward(request, response);

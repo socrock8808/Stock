@@ -30,6 +30,7 @@ public class NewArticle extends HttpServlet {
 		int arti_id = con.getLastestArticleID()+1;
 		int uid = Integer.parseInt((String)session.getAttribute("UID"));
 		con.addArticle(title, content, uid);
+		session.removeAttribute("LastestArticle");
 		path += "?arti_id="+arti_id;
 		response.sendRedirect(path);
 	}
