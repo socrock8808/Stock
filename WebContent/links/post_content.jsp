@@ -18,7 +18,7 @@
 		<a href="board.jsp" class="#">回到討論板</a>
 	</div>
 	<div>
-		<a href="#" class="#">文章編輯</a>
+		<a href="#?arti_id=<%=request.getParameter("arti_id")%>" class="#">文章編輯</a>
 	</div>
 	<div>
 		<table border="0" class="art_content" style="width: 600px">
