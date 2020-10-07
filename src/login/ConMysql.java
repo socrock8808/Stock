@@ -261,6 +261,16 @@ public class ConMysql{
 			System.out.print("sql執行失敗");
 		}
 	}
+	/*刪除自選股*/
+	public void deleteSelfStock(String stock_id,String User_id) {
+		/*執行指令*/
+		sql = "DELETE from stock_self Where stock_id='"+stock_id+"' AND user_id='"+User_id+"';";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
 	/*新增文章近資料庫*/
 	public void addArticle(String title,String content,int id) {
 		/*執行指令*/
