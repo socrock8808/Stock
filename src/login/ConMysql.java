@@ -166,6 +166,7 @@ public class ConMysql{
 		}
 		return data;
 	}
+	
 	/*根據文章編號取得使用者資料*/
 	public String getUserDataWithAricle(String column,int id) {
 		/*執行指令*/
@@ -190,6 +191,86 @@ public class ConMysql{
 		}
 		return data;
 	}
+	/*根據User_id取得自選股總數*/
+	public int getSelfStockCount(int User_id)
+	{
+		/*執行指令*/
+		sql =   "SELECT count(*) from stock_self " + 
+				"left join stock_lastest " + 
+				"on stock_self.stock_id=stock_lastest.stock_id " + 
+				"where stock_self.user_id='"+User_id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		int data = 0;
+		try {
+			while(res.next())
+			{
+				data = res.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	/*根據會員編號取得自選股票資料*/
+	public String[][] getSelfStockWtihUser(int SCount,int User_id) {
+		/*執行指令*/
+		sql =   "SELECT * from stock_self " + 
+				"left join stock_lastest " + 
+				"on stock_self.stock_id=stock_lastest.stock_id " + 
+				"where stock_self.user_id='"+User_id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String[][] result = new String[SCount][10];
+		int count=0;
+		try {
+			while(res.next())
+			{
+				result[count][0] = res.getString("stock_id");
+				result[count][1] = res.getString("stock_name");
+				result[count][2] = res.getString("stock_trade");
+				result[count][3] = res.getString("stock_trunover");
+				result[count][4] = res.getString("stock_open");
+				result[count][5] = res.getString("stock_max");
+				result[count][6] = res.getString("stock_min");
+				result[count][7] = res.getString("stock_close");
+				result[count][8] = res.getString("stock_diff");
+				result[count][9] = res.getString("stock_transaction");
+				count++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	/*新增自選股進資料庫*/
+	public void addSelfStock(String stock_id,String User_id) {
+		/*執行指令*/
+		sql =  "insert into stock_self values('"+stock_id+"','"+User_id+"');";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
+	/*刪除自選股*/
+	public void deleteSelfStock(String stock_id,String User_id) {
+		/*執行指令*/
+		sql = "DELETE from stock_self Where stock_id='"+stock_id+"' AND user_id='"+User_id+"';";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
 	/*新增文章近資料庫*/
 	public void addArticle(String title,String content,int id) {
 		/*執行指令*/
@@ -200,7 +281,6 @@ public class ConMysql{
 		} catch (SQLException e) {
 			System.out.print("sql執行失敗");
 		}
-		
 	}
 	/*更新文章近資料庫*/
 	public void updateArticle(String title,String content,int id) {

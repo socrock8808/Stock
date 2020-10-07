@@ -18,7 +18,12 @@
 		<a href="board.jsp" class="#">回到討論板</a>
 	</div>
 	<div>
-		<a href="#?arti_id=<%=request.getParameter("arti_id")%>" class="#">文章編輯</a>
+		<%
+			String arti_User_id=request.getParameter("User_id");
+			String User_id = (String)session.getAttribute("UID");
+			if( User_id.equals(arti_User_id))
+				out.print("<a href='#?arti_id="+request.getParameter("arti_id")+"' class='#'>文章編輯</a>");
+		%>
 	</div>
 	<div>
 		<table border="0" class="art_content" style="width: 600px">
