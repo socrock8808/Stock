@@ -13,6 +13,7 @@
 			if (session.getAttribute("Login") != null)
 				out.print("<a href='http://localhost:8080/Stock/LoadArticle'>討論板</a>");
 		%>
+		<a href="#">自選股</a>
 	</div>
 	<div class="third-content">
 		<%	//註冊、登入顯示判斷
