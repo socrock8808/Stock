@@ -19,6 +19,37 @@
 		}
 	}
 </script>
+<script type="text/javascript">
+	  var xmlHTTP;
+
+      function check()
+      {  
+        if(window.ActiveXObject)
+        {
+          xmlHTTP=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else if(window.XMLHttpRequest)
+        {
+          xmlHTTP=new XMLHttpRequest();
+        }
+        var ac = document.getElementById("account").value;
+        xmlHTTP.open("GET","http://localhost:8080/Stock/CheckAccount?User_Account="+ac,true);
+    	
+        xmlHTTP.onreadystatechange=function check_status()
+        {
+          if(xmlHTTP.readyState == 4)
+          {
+            if(xmlHTTP.status == 200)
+            {
+            	alert(xmlHTTP.status);
+                var str=xmlHTTP.responseText;
+                document.getElementById("message").innerHTML="<h1>"+str+"</h1>";
+            }
+          }
+        }
+        xmlHTTP.send();
+      }
+</script>
 </head>
 <body>
 	<div class="#">
@@ -33,7 +64,11 @@
 		<table border="1">
 			<tr>
 				<td align="center">帳號:</td>
-				<td><input type="text" name="User_Account" required size="20"></td>
+				<td>
+					<input type="text" name="User_Account" required size="20" id="account">
+					<input type="button" name="aa" value="test" onClick="check()" required size="20" class="register-submit">
+					<span id="message"></span>
+				</td>
 			</tr>
 			<tr>
 				<td align="center">密碼:</td>

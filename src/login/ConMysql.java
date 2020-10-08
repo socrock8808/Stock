@@ -330,4 +330,32 @@ public class ConMysql{
 			System.out.print("sucess");
 		}
 	}
+	/*圖片插入測試*/
+	public void addImg(String encodetxt) {
+		try {
+			stat.execute("insert into ttaa (img) values('"+encodetxt+"');");
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
+	/*圖片讀取測試*/
+	public String getImg(String id) {
+		sql = "SELECT * FROM ttaa where id='"+id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String data = "";
+		try {
+			while(res.next())
+			{
+				data = res.getString("img");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
 }

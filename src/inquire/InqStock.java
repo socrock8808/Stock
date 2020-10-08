@@ -20,7 +20,6 @@ public class InqStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		PrintWriter out = response.getWriter();
