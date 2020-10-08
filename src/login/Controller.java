@@ -20,7 +20,6 @@ public class Controller extends HttpServlet {
 	private final Pattern passwordRegex = Pattern.compile("^\\w{8,16}$");;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();

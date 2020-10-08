@@ -19,8 +19,6 @@ public class UpdateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();

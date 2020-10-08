@@ -21,7 +21,6 @@ public class User_res extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		PrintWriter out = response.getWriter();
