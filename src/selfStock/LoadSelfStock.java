@@ -24,7 +24,8 @@ public class LoadSelfStock extends HttpServlet {
 		con.conDb();
 		int count = con.getSelfStockCount(User_id);
 		String[][] result = con.getSelfStockWtihUser(count, User_id);
-		session.setAttribute("result", result);
+		session.setAttribute("stock_result", result);
+		session.setAttribute("stock_count", count);
 		response.sendRedirect(path);
 	}
 
