@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import login.ConMysql;
 
@@ -19,7 +18,6 @@ public class LoadContent extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();
 		con.conDb();
 		int arti_id = Integer.parseInt(request.getParameter("arti_id"));
@@ -31,11 +29,12 @@ public class LoadContent extends HttpServlet {
 		String content = URLEncoder.encode(con.getArticleData("arti_txt", arti_id), "utf-8");
 		String user = URLEncoder.encode(con.getUserDataWithAricle("User_Name", arti_id), "utf-8");
 		String time = URLEncoder.encode(con.getArticleData("arti_update", arti_id), "utf-8");
+		String photo = URLEncoder.encode(con.getArticleData("arti_img", arti_id),"utf-8");
 		String User_id = con.getArticleData("user_id", arti_id);
 		path += "?arti_title="+title+"&arti_txt="+content
 				+"&User_Name="+user+"&arti_viewNum="+num
 				+"&arti_update="+time+"&arti_id="+arti_id
-				+"&User_id="+User_id;
+				+"&User_id="+User_id+"&arti_img="+photo;
 		response.sendRedirect(path);
 		
 	}

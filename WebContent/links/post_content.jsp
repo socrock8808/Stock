@@ -33,7 +33,7 @@
 		%>
 	</div>
 	<div>
-		<table border="0" class="art_content" style="width: 600px">
+		<table border="1" class="art_content" style="width: 600px">
 			<tr>
 				<td width="900rem" colspan="2" align="center"><%=request.getParameter("arti_title") %></td>
 			</tr>
@@ -47,6 +47,11 @@
 			<tr>
 				<td width="80%">內文：<%=request.getParameter("arti_txt") %></td>
 			</tr>
+			<%-- <tr>
+				<td><img alt="" src='<%=request.getParameter("arti_img")%>'></td>
+				<td><img alt="" src=/Stock/files/arti_img/51.jpg></td>
+				
+			</tr> --%>
 			
 		</table>
 	</div>

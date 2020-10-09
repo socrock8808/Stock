@@ -146,9 +146,9 @@ public class ConMysql{
 		return data;
 	}
 	/*根據文章編號取得資料*/
-	public String getArticleData(String column,int id) {
+	public String getArticleData(String column,int arti_id) {
 		/*執行指令*/
-		sql = "select * from article where arti_id="+id+";";
+		sql = "select * from article where arti_id="+arti_id+";";
 		try {
 			res = stat.executeQuery(sql);
 		} catch (SQLException e) {
@@ -168,12 +168,12 @@ public class ConMysql{
 	}
 	
 	/*根據文章編號取得使用者資料*/
-	public String getUserDataWithAricle(String column,int id) {
+	public String getUserDataWithAricle(String column,int arti_id) {
 		/*執行指令*/
 		sql =   "SELECT * from article " + 
 				"left join user " + 
 				"on article.user_id=user.User_id " + 
-				"where article.arti_id='"+id+"';";
+				"where article.arti_id='"+arti_id+"';";
 		try {
 			res = stat.executeQuery(sql);
 		} catch (SQLException e) {
@@ -272,10 +272,21 @@ public class ConMysql{
 		}
 	}
 	/*新增文章近資料庫*/
-	public void addArticle(String title,String content,int id) {
+	public void addArticle(String title,String content,int user_id) {
 		/*執行指令*/
 		sql =  "insert into article (arti_title,arti_txt,user_id) " + 
-				"values('"+title+"','"+content+"','"+id+"');";
+				"values('"+title+"','"+content+"','"+user_id+"');";
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
+	/*新增照片進資料庫*/
+	public void updatePhoto(String filename,int arti_id) {
+		/*執行指令*/
+		sql =  "update article set arti_img='" + filename 
+				+ "' where arti_id='"+arti_id+"';";  
 		try {
 			stat.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -283,11 +294,11 @@ public class ConMysql{
 		}
 	}
 	/*更新文章近資料庫*/
-	public void updateArticle(String title,String content,int id) {
+	public void updateArticle(String title,String content,int arti_id) {
 		/*執行指令*/
 		sql =   "update article set arti_title='"+title
 				+ "',arti_txt='"+content+"'"
-				+ " where arti_id='"+id+"';";
+				+ " where arti_id='"+arti_id+"';";
 		try {
 			stat.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -296,11 +307,11 @@ public class ConMysql{
 	}
 	
 	/*更新使用者資料*/
-	public void updateUser(String name,String psd,String mail,int id) {
+	public void updateUser(String name,String psd,String mail,int User_id) {
 		/*執行指令*/
 		sql =   "update user " + 
 				"set User_Name='"+name+"',User_Password='"+psd+"',User_Email='"+mail+"'" + 
-				"where User_id="+id+";";
+				"where User_id="+User_id+";";
 		try {
 			stat.executeUpdate(sql);
 		} catch (SQLException e) {
