@@ -22,14 +22,15 @@
 	<div>
 		<a href="board.jsp">回到討論板</a>
 	</div>
-	<form method="post" action="http://localhost:8080/Stock/NewArticle" name="article">
+	<form method="post" action="http://localhost:8080/Stock/NewArticle" name="article" enctype="multipart/form-data">
 		<a>標題:</a><br> <input class="article" type="text" name="arti_title" required="required"
 			size="40">
 		<p></p>
 		文章內容:<br>
 		<textarea class="article" name="arti_txt" rows="18" cols="50"></textarea>
 		<p></p>
-		<input type="submit" value="傳送" action="#"> <input
+		上傳照片:<input type="file" name="photo" /><br><br>
+		<input type="submit" value="傳送"> <input
 			type="reset" value="重填">
 		<p></p>
 	</form>
