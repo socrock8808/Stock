@@ -293,6 +293,16 @@ public class ConMysql{
 			System.out.print("sql執行失敗");
 		}
 	}
+	public void updateReplyPhoto(String filename,int reply_id) {
+		/*執行指令*/
+		sql =  "update article_reply set reply_img='" + filename 
+				+ "' where reply_id='"+reply_id+"';";  
+		try {
+			stat.executeUpdate(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
 	/*更新文章近資料庫*/
 	public void updateArticle(String title,String content,int arti_id) {
 		/*執行指令*/
@@ -340,6 +350,37 @@ public class ConMysql{
 			e.printStackTrace();
 			System.out.print("sucess");
 		}
+	}
+	/*回覆插入*/
+	public void addReply(String reply_txt,int arti_id,int user_id) {
+		try {
+			stat.execute("insert into article_reply (reply_txt,arti_id,user_id)values('"
+					+reply_txt+"','"+arti_id+"','"+user_id+"');");
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+	}
+	/*取得最新的回覆編號*/
+	public int getLastestReplyID()
+	{
+		/*執行指令*/
+		sql = "select reply_id from article_reply order by reply_id desc LIMIT 1;";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		int data = 0;
+		try {
+			while(res.next())
+			{
+				data = res.getInt("arti_id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
 	}
 	/*圖片插入測試*/
 	public void addImg(String encodetxt) {

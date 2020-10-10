@@ -1,7 +1,6 @@
-package article.content;
+package article.reply;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -11,42 +10,41 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import filter.EncoderWrapper;
+import article.content.FileNameTool;
 import login.ConMysql;
 
-/**
- * Servlet implementation class NewArticle
- */
-@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/images/arti_img",
-					maxFileSize=1024*1024*5)//超過大小會丟出例外
-@WebServlet("/NewArticle")
-public class NewArticle extends HttpServlet {
+@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/images/reply_img",
+maxFileSize=1024*1024*5)//超過大小會丟出例外
+@WebServlet("/NewReply")
+public class NewReply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		HttpSession session=request.getSession();
-		ConMysql con = new ConMysql();
+		response.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		FileNameTool fnt = new FileNameTool();
-		con.conDb();
+		ConMysql con = new ConMysql();
 		String path = "LoadContent";
-		String title = request.getParameter("arti_title");
-		String content = request.getParameter("arti_txt");
-		int arti_id = con.getLastestArticleID()+1;
-		int uid = Integer.parseInt((String)session.getAttribute("UID"));
-		con.addArticle(title, content, uid);
+		con.conDb();
+		int arti_id = Integer.parseInt(request.getParameter("arti_id"));
+		int user_id = Integer.parseInt((String)session.getAttribute("UID"));
+		String reply_txt= request.getParameter("reply_txt");
+		con.addReply(reply_txt, arti_id, user_id);
 		
 		Part photo = request.getPart("photo");
 		String ck = fnt.getPhotoName(photo);
+		int reply_id = con.getLastestReplyID();
 		if(!ck.equals("")) 
 		{
-			String location = "/Stock/images/arti_img/";
-			String filename = arti_id+ck;
+			String location = "/Stock/images/reply_img/";
+			String filename = arti_id+"_"+reply_id+ck;
 			photo.write(filename);
-			con.updatePhoto(location+filename, arti_id);
+			con.updateReplyPhoto(location+filename, reply_id);
 		}
-		session.removeAttribute("LastestArticle");
 		path += "?arti_id="+arti_id;
 		request.getRequestDispatcher(path).forward(request, response);
 	}
+
 }
