@@ -29,10 +29,10 @@ html {
 }
 
 .post {
-	background-color:gray;
+	background-color:#F0F0F0;
 	margin-top:auto;
 	margin-left:auto;
-	margin-right:60%;
+	margin-right:75%;
 	margin-bottom:5px;
 }
 </style>
