@@ -60,12 +60,24 @@
 			<a href="http://localhost:8080/Stock/PreArticle">上一頁</a>
 	<%	}%>
 	<a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
-	<%  
-		if( id >= count)
-		{%>
-			<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
-			<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
-	<%	}%>
+	<%
+		if( id % 10 == 0)
+		{
+			if( id > count)
+			{%>
+				<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
+				<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
+			<%}
+		}
+		else
+		{
+			if( id >= count)
+			{%>
+				<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
+				<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
+			<%}
+		}
+	%>
 	
 </body>
 </html>
