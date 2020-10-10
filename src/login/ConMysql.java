@@ -166,6 +166,58 @@ public class ConMysql{
 		}
 		return data;
 	}
+	/*取得回覆總數*/
+	public int getReplyCount(int arti_id)
+	{
+		/*執行指令*/
+		sql = "select count(*) from article_reply where arti_id='"+arti_id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		int data = 0;
+		try {
+			while(res.next())
+			{
+				data = res.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	/*根據文章編號取得回覆資料*/
+	public String[][] getReply(int RCount,int arti_id) {
+		/*執行指令*/
+		sql = "SELECT * FROM article_reply"
+			+" left join user"
+			+" on user.User_id=article_reply.user_id"
+			+" where article_reply.arti_id='"+arti_id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String[][] result = new String[RCount][5];
+		int count=0;
+		try {
+			while(res.next())
+			{
+				result[count][0] = res.getString("reply_id");
+				result[count][1] = res.getString("reply_txt");
+				result[count][2] = res.getString("reply_update");
+				result[count][3] = res.getString("reply_img");
+				result[count][4] = res.getString("User_Name");
+				count++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 	/*根據文章編號取得使用者資料*/
 	public String getUserDataWithAricle(String column,int arti_id) {
@@ -375,7 +427,7 @@ public class ConMysql{
 		try {
 			while(res.next())
 			{
-				data = res.getInt("arti_id");
+				data = res.getInt("reply_id");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

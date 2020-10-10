@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.cj.Session;
 
 import login.ConMysql;
 
@@ -18,6 +21,7 @@ public class LoadContent extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		HttpSession session = request.getSession();
 		ConMysql con = new ConMysql();
 		con.conDb();
 		int arti_id = Integer.parseInt(request.getParameter("arti_id"));
@@ -37,6 +41,11 @@ public class LoadContent extends HttpServlet {
 				+"&User_id="+User_id;
 		if(photo != null)
 			path += "&arti_img="+photo;
+		
+		int RCount = con.getReplyCount(arti_id);
+		String[][] reply = con.getReply(RCount, arti_id);
+		session.setAttribute("reply", reply);
+		path += "&reply_count="+RCount;
 		response.sendRedirect(path);
 		
 	}
