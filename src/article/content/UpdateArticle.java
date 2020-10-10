@@ -15,7 +15,7 @@ import login.ConMysql;
 /**
  * Servlet implementation class UpdateArticle
  */
-@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/files/arti_img",
+@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/images/arti_img",
 					maxFileSize=1024*1024*5)//超過大小會丟出例外
 @WebServlet("/UpdateArticle")
 public class UpdateArticle extends HttpServlet {
@@ -35,7 +35,7 @@ public class UpdateArticle extends HttpServlet {
 		String ck = fnt.getPhotoName(photo);
 		if(!ck.equals("")) 
 		{
-			String location = "/Users/Aspretica/eclipse-workspace/Stock/WebContent/files/arti_img/";
+			String location = "/Stock/images/arti_img/";
 			String filename = arti_id+ck;
 			photo.write(filename);
 			con.updatePhoto(location+filename, arti_id);
