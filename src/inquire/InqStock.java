@@ -20,9 +20,10 @@ public class InqStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
+		response.setCharacterEncoding("utf-8");
 		HttpSession session=request.getSession();
-		PrintWriter out = response.getWriter();
 		ConMysql con = new ConMysql();
 		con.conDb();//連接資料庫
 		String inq = request.getParameter("stock"); 
@@ -35,6 +36,7 @@ public class InqStock extends HttpServlet {
 		{
 			session.setAttribute("InqResult", "查無資料");
 			request.getRequestDispatcher(errorPath).forward(request, response);
+			return;
 		}
 		String stock_name = con.getStockData("stock_name", inq);
 		String stock_trade = con.getStockData("stock_trade", inq);

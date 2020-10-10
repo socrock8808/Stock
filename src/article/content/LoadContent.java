@@ -29,12 +29,14 @@ public class LoadContent extends HttpServlet {
 		String content = URLEncoder.encode(con.getArticleData("arti_txt", arti_id), "utf-8");
 		String user = URLEncoder.encode(con.getUserDataWithAricle("User_Name", arti_id), "utf-8");
 		String time = URLEncoder.encode(con.getArticleData("arti_update", arti_id), "utf-8");
-		String photo = URLEncoder.encode(con.getArticleData("arti_img", arti_id),"utf-8");
+		String photo = con.getArticleData("arti_img", arti_id);
 		String User_id = con.getArticleData("user_id", arti_id);
 		path += "?arti_title="+title+"&arti_txt="+content
 				+"&User_Name="+user+"&arti_viewNum="+num
 				+"&arti_update="+time+"&arti_id="+arti_id
-				+"&User_id="+User_id+"&arti_img="+photo;
+				+"&User_id="+User_id;
+		if(photo != null)
+			path += "&arti_img="+photo;
 		response.sendRedirect(path);
 		
 	}

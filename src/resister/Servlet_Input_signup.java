@@ -20,7 +20,9 @@ public class Servlet_Input_signup extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
+		response.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		ConMysql con = new ConMysql();
@@ -35,12 +37,12 @@ public class Servlet_Input_signup extends HttpServlet {
 		String birthday = request.getParameter("User_Birthday");
 		
 		con.insert_signup(account, upassword, name, uGender, email, birthday);
-		out.print(account);
-		out.print(upassword);
-		out.print(name);
-		out.print(uGender);
-		out.print(email);
-		out.print(birthday);
+//		out.print(account);
+//		out.print(upassword);
+//		out.print(name);
+//		out.print(uGender);
+//		out.print(email);
+//		out.print(birthday);
 
 //		successPath += "?User_id=" + account;
 		request.getRequestDispatcher(successPath).forward(request, response);

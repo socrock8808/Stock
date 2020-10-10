@@ -41,7 +41,6 @@
           {
             if(xmlHTTP.status == 200)
             {
-            	alert(xmlHTTP.status);
                 var str=xmlHTTP.responseText;
                 document.getElementById("message").innerHTML="<h1>"+str+"</h1>";
             }

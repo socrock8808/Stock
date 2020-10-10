@@ -12,8 +12,8 @@ public class ConMysql{
 	private ResultSet res = null;
 	private String sDriver="com.mysql.cj.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost:3306/TestDB?serverTimezone=CST";
-	private String user = "root"; //資料庫使用者
-	private String password = "12345678"; //資料庫密碼
+	private String user = "newuser"; //資料庫使用者
+	private String password = "11111111"; //資料庫密碼
 	private String sql = "";
 
 	//連接資料庫

@@ -16,12 +16,13 @@ import login.ConMysql;
 /**
  * Servlet implementation class NewArticle
  */
-@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/files/arti_img",
+@MultipartConfig(location="/Users/Aspretica/eclipse-workspace/Stock/WebContent/images/arti_img",
 					maxFileSize=1024*1024*5)//超過大小會丟出例外
 @WebServlet("/NewArticle")
 public class NewArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();
@@ -38,7 +39,7 @@ public class NewArticle extends HttpServlet {
 		String ck = fnt.getPhotoName(photo);
 		if(!ck.equals("")) 
 		{
-			String location = "/Users/Aspretica/eclipse-workspace/Stock/WebContent/files/arti_img/";
+			String location = "/Stock/images/arti_img/";
 			String filename = arti_id+ck;
 			photo.write(filename);
 			con.updatePhoto(location+filename, arti_id);

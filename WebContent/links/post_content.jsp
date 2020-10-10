@@ -47,12 +47,12 @@
 			<tr>
 				<td width="80%">內文：<%=request.getParameter("arti_txt") %></td>
 			</tr>
-			<%-- <tr>
-				<td><img alt="" src='<%=request.getParameter("arti_img")%>'></td>
-				<td><img alt="" src=/Stock/files/arti_img/51.jpg></td>
-				
-			</tr> --%>
-			
+			<%
+				if(request.getParameter("arti_img") != null)
+				{
+					out.print("<tr><td><img width='300px' src='"+request.getParameter("arti_img")+"'></td></tr>");
+				}
+			%>
 		</table>
 	</div>
 	<!-- <div>
