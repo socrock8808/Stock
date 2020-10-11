@@ -45,7 +45,7 @@ public class Servlet_Input_signup extends HttpServlet {
 //		out.print(birthday);
 
 //		successPath += "?User_id=" + account;
-		request.getRequestDispatcher(successPath).forward(request, response);
+		response.sendRedirect(successPath);
 	}
 
 	/**

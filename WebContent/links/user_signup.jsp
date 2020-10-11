@@ -33,7 +33,7 @@
           xmlHTTP=new XMLHttpRequest();
         }
         var ac = document.getElementById("account").value;
-        xmlHTTP.open("GET","http://localhost:8080/Stock/CheckAccount?User_Account="+ac,true);
+        xmlHTTP.open("GET",'http://<%=application.getAttribute("IP")%>:8080/Stock/CheckAccount?User_Account='+ac,true);
     	
         xmlHTTP.onreadystatechange=function check_status()
         {
@@ -56,7 +56,7 @@
 	</div>
 	<div id="header" style="text-align: center">
 	<form method="post"
-		action="http://localhost:8080/Stock/Servlet_Input_signup">
+		action="http://<%=application.getAttribute("IP")%>:8080/Stock/Servlet_Input_signup">
 		<p>
 			<font size="5"><b>Sign up</b></font>
 		</p>

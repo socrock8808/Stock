@@ -45,7 +45,7 @@ html {
 		<a href="../index.jsp" class="#">回首頁</a>
 	</div>
 	<div>
-		<a href="http://localhost:8080/Stock/Logout">登出</a>
+		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout">登出</a>
 	</div>
 	<div>
 		<%
@@ -53,7 +53,7 @@ html {
 			if(session.getAttribute("LastestArticle") != null)
 				back = "board.jsp";
 			else
-				back = "http://localhost:8080/Stock/LoadArticle";
+				back = "http://"+application.getAttribute("IP")+":8080/Stock/LoadArticle";
 		%>
 		<a href="<%=back%>" class="#">回到討論板</a>
 	</div>
@@ -120,7 +120,7 @@ html {
 	<br><!-- 以下為回覆書寫區 -->
 	<div>
 		<span style='color:red'><%=session.getAttribute("Login")%></span>
-		<form action="http://localhost:8080/Stock/NewReply?arti_id=<%=request.getParameter("arti_id")%>"
+		<form action="http://<%=application.getAttribute("IP")%>:8080/Stock/NewReply?arti_id=<%=request.getParameter("arti_id")%>"
 		 		method="post" enctype="multipart/form-data">
 			<textarea name="reply_txt" rows="5" cols="50">請輸入內容</textarea>
 			<input type="submit" value="送出" name="upload"><br>

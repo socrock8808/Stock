@@ -25,7 +25,7 @@
 		<a href="../index.jsp" class="#">回首頁</a>
 	</div>
 	<div class="third-content">
-		<a href="http://localhost:8080/Stock/Logout" class="#">登出</a>
+		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout" class="#">登出</a>
 	</div>
 	<div>
 		<a href="write_post.jsp">發佈文章</a>
@@ -44,7 +44,7 @@
 
 		<tr>
 			<td width="90">No.<%=no[i][0]%></td>
-			<td width="400"><a href="http://localhost:8080/Stock/LoadContent?arti_id=<%=no[i][0]%>"><%=no[i][1]%></a></td>
+			<td width="400"><a href="http://<%=application.getAttribute("IP")%>:8080/Stock/LoadContent?arti_id=<%=no[i][0]%>"><%=no[i][1]%></a></td>
 			<td width="120"><%=no[i][2]%></td>
 			<td width="90"><%=no[i][3]%></td>
 		</tr>
@@ -58,8 +58,8 @@
 		int count = (int)session.getAttribute("ArtiCount")%10;
 		if( id < (lastestId-10))
 		{%>
-			<a href="http://localhost:8080/Stock/FirstArticle">第一頁</a>
-			<a href="http://localhost:8080/Stock/PreArticle">上一頁</a>
+			<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/FirstArticle">第一頁</a>
+			<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/PreArticle">上一頁</a>
 	<%	}%>
 	<a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	<%
@@ -67,16 +67,16 @@
 		{
 			if( id > count)
 			{%>
-				<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
-				<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
+				<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/NextArticle">下一頁</a>
+				<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/LastArticle">最末頁</a>
 			<%}
 		}
 		else
 		{
 			if( id >= count)
 			{%>
-				<a href="http://localhost:8080/Stock/NextArticle">下一頁</a>
-				<a href="http://localhost:8080/Stock/LastArticle">最末頁</a>
+				<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/NextArticle">下一頁</a>
+				<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/LastArticle">最末頁</a>
 			<%}
 		}
 	%>

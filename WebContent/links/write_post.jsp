@@ -18,12 +18,12 @@
 		<a href="../index.jsp">回首頁</a>
 	</div>
 	<div class="third-content">
-		<a href="http://localhost:8080/Stock/Logout">登出</a>
+		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout">登出</a>
 	</div>
 	<div>
 		<a href="board.jsp">回到討論板</a>
 	</div>
-	<form method="post" action="http://localhost:8080/Stock/NewArticle"
+	<form method="post" action="http://<%=application.getAttribute("IP")%>:8080/Stock/NewArticle"
 					 name="article" enctype="multipart/form-data">
 		<table>
 			<tr>

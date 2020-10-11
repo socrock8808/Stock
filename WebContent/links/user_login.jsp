@@ -15,7 +15,7 @@
 	<a class='section-item' href='user_signup.jsp' style='margin-left: 300'>註冊</a>
 	</div>
 	<div id="header" style="text-align: center">
-	<form method="post" action="http://localhost:8080/Stock/Controller">
+	<form method="post" action="http://<%=application.getAttribute("IP")%>:8080/Stock/Controller">
 		<p>
 			<font size="5"><b>Login</b></font>
 			<%

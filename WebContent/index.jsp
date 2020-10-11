@@ -7,11 +7,13 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="files/css/main.css">
 </head>
+<%if(application.getAttribute("IP") == null )
+	application.setAttribute("IP", "localhost");%>
 <body class="a">
 	<div class="section-content">
 		<%	//討論版顯示判斷
 			if (session.getAttribute("Login") != null)
-				out.print("<a href='http://localhost:8080/Stock/LoadArticle'>討論板</a>");
+				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/LoadArticle'>討論板</a>");
 		%>
 		<a href="#">自選股</a>
 	</div>
@@ -25,7 +27,7 @@
 		%>
 		<%	//會員管理顯示判斷
 			if (session.getAttribute("Login") != null)
-				out.print("<a href='http://localhost:8080/Stock/User_res'>會員管理</a>");
+				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/User_res'>會員管理</a>");
 		%>
 		<%	//股票查詢結果顯示判斷
 			if (session.getAttribute("InqResult") != null)
@@ -39,7 +41,7 @@
 		<%	//登出顯示判斷
 			if (session.getAttribute("Login") != null)
 				out.print("<a class='section-item'"
-							+"href='http://localhost:8080/Stock/Logout'"
+							+"href='http://"+application.getAttribute("IP")+":8080/Stock/Logout'"
 							+"style='margin-left: 300'>登出</a>");
 		%>
 	</div>
@@ -49,7 +51,7 @@
 	</div>
 
 	<form id="signup-form" method="GET"
-		action="http://localhost:8080/Stock/InqStock" style="margin: 5px auto">
+		action="http://<%=application.getAttribute("IP")%>:8080/Stock/InqStock" style="margin: 5px auto">
 		<input type="text" name="stock" id="stock" placeholder="股票名稱或股票代號" />
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" style="margin: 0px" value="查詢" />

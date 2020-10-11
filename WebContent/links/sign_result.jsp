@@ -52,7 +52,7 @@
 			}
 			;
 		%>
-		<form class="form1" method="post" action="http://localhost:8080/Stock/UpdateUser">
+		<form class="form1" method="post" action="http://<%=application.getAttribute("IP")%>:8080/Stock/UpdateUser">
 			<table style="margin: 0 auto;" border="1">
 				<tr>
 					<td class="row1">帳號</td>
