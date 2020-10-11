@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../files/css/main.css">
 <title>發佈文章</title>
 <script type="text/javascript">
 
@@ -13,26 +14,38 @@
 </head>
 
 <body>
-	<div class="#">
+	<div class="section-content">
 		<a href="../index.jsp">回首頁</a>
 	</div>
-	<div>
+	<div class="third-content">
 		<a href="http://localhost:8080/Stock/Logout">登出</a>
 	</div>
 	<div>
 		<a href="board.jsp">回到討論板</a>
 	</div>
-	<form method="post" action="http://localhost:8080/Stock/NewArticle" name="article" enctype="multipart/form-data">
-		<a>標題:</a><br> <input class="article" type="text" name="arti_title" required="required"
-			size="40">
-		<p></p>
-		文章內容:<br>
-		<textarea class="article" name="arti_txt" rows="18" cols="50"></textarea>
-		<p></p>
-		上傳照片:<input type="file" name="photo" /><br><br>
-		<input type="submit" value="傳送"> <input
+	<form method="post" action="http://localhost:8080/Stock/NewArticle"
+					 name="article" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>標題:</td>
+			</tr>
+			<tr>
+				<td><input class="article" type="text" name="arti_title" required="required"
+			size="40"></td>
+			</tr>
+			<tr>
+				<td>文章內容:</td>
+			</tr>
+			<tr>
+				<td><textarea class="article" name="arti_txt" rows="18" cols="50"></textarea></td>
+			</tr>
+			<tr>
+				<td>上傳照片:<input type="file" name="photo" /></td>
+			</tr>
+		</table>
+		<input type="submit" value="傳送" > <input
 			type="reset" value="重填">
-		<p></p>
 	</form>
 </body>
+<script src="../files/js/main.js"></script>
 </html>
