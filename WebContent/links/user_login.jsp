@@ -12,7 +12,7 @@
 	<a href="../index.jsp" class="card-link">回首頁</a>
 	</div>
 	<div class="third-content">
-	<a class='section-item' href='links/user_signup.jsp' style='margin-left: 300'>註冊</a>
+	<a class='section-item' href='user_signup.jsp' style='margin-left: 300'>註冊</a>
 	</div>
 	<div id="header" style="text-align: center">
 	<form method="post" action="http://localhost:8080/Stock/Controller">
