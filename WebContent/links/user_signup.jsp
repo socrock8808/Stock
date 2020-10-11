@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>Input data</title>
-<link href="../css/test.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../files/css/main.css">
 <script>
 	function check() {
 		var p1 = document.getElementById("pw1").value;
@@ -51,16 +51,16 @@
 </script>
 </head>
 <body>
-	<div class="#">
+	<div class="section-content">
 		<a href="../index.jsp" class="index-link">回首頁</a>
 	</div>
-
+	<div id="header" style="text-align: center">
 	<form method="post"
 		action="http://localhost:8080/Stock/Servlet_Input_signup">
-		<p align="left">
+		<p>
 			<font size="5"><b>Sign up</b></font>
 		</p>
-		<table border="1">
+		<table style="margin: 0px auto" border="1">
 			<tr>
 				<td align="center">帳號:</td>
 				<td>
@@ -89,20 +89,25 @@
 			</tr>
 			<tr>
 				<td align="center">性別:</td>
-				<td><input type="radio" name="User_Gender" required value="1">男<input
-					type="radio" name="User_Gender" value="0" required size="20">女</td>
+				<td>
+					<input type="radio" id="male" name="User_Gender" required value="1">
+					<label for="male">男</label>
+					<input type="radio" id="female" name="User_Gender" value="0" required size="20">
+					<label for="female">女</label>
+				</td>
 			</tr>
 			<tr>
 				<td align="center">信箱:</td>
 				<td><input type="email" name="User_Email" required size="20"></td>
 			<tr>
 				<td align="center">生日</td>
-				<td><input type="Date" name="User_Birthday" required size="20"></td>
+				<td><input type="Date" name="User_Birthday" required size="20" style="color:balck;"></td>
 			</tr>
 		</table>
 		<input type="submit" id="submit" value="確定"> <input type="reset"
 			value="重設">
 	</form>
-
+	</div>
+<script src="../files/js/main.js"></script>
 </body>
 </html>
