@@ -83,7 +83,7 @@ html {
 			<%
 				if(request.getParameter("arti_img") != null)
 				{
-					out.print("<tr><td><img width='300px' src='"+request.getParameter("arti_img")+"'></td></tr>");
+					out.print("<tr><td><img style='height: 125px; width: 110px;' src='"+request.getParameter("arti_img")+"'></td></tr>");
 				}
 			%>
 		</table>
