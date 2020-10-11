@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="files/css/main.css">
 </head>
 <body class="a">
-	<div class="second-content">
+	<div class="section-content">
 		<%	//討論版顯示判斷
 			if (session.getAttribute("Login") != null)
 				out.print("<a href='http://localhost:8080/Stock/LoadArticle'>討論板</a>");
@@ -49,9 +49,10 @@
 	</div>
 
 	<form id="signup-form" method="GET"
-		action="http://localhost:8080/Stock/InqStock">
-		<input type="text" name="stock" id="stock" style="margin: 0px auto" placeholder="股票名稱或股票代號" />
-		<input type="submit" value="查詢" />
+		action="http://localhost:8080/Stock/InqStock" style="margin: 5px auto">
+		<input type="text" name="stock" id="stock" placeholder="股票名稱或股票代號" />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="submit" style="margin: 0px" value="查詢" />
 	</form>
 	<script src="files/js/main.js"></script>
 </body>

@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../files/css/main.css">
+<script src="../files/js/main.js"></script>
 <title>文章內文</title>
-<style type="text/css">
+<!-- <style type="text/css">
 div {
     display: block;
 }
@@ -35,7 +37,7 @@ html {
 	margin-right:75%;
 	margin-bottom:5px;
 }
-</style>
+</style> -->
 </head>
 
 <body>

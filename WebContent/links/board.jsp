@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../files/css/main.css">
+<script src="../files/js/main.js"></script>
 <title>討論區</title>
 <style type="text/css">
 .title {
@@ -19,10 +21,10 @@
 </head>
 
 <body>
-	<div>
+	<div  class="section-content">
 		<a href="../index.jsp" class="#">回首頁</a>
 	</div>
-	<div>
+	<div class="third-content">
 		<a href="http://localhost:8080/Stock/Logout" class="#">登出</a>
 	</div>
 	<div>

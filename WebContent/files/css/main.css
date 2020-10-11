@@ -14,7 +14,7 @@ footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0;
+  /*border: 0;*/
   font-size: 100%;
   font: inherit;
   vertical-align: baseline; }
@@ -50,7 +50,7 @@ blockquote, q {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 2px; }
 
 body {
   -webkit-text-size-adjust: none; }
@@ -760,13 +760,13 @@ button,
   input[type="button"]:hover,
   button:hover,
   .button:hover {
-    background-color: #1fcaa7; }
+    background-color: #45eda4; }
   input[type="submit"]:active,
   input[type="reset"]:active,
   input[type="button"]:active,
   button:active,
   .button:active {
-    background-color: #199e83; }
+    background-color: #41b080; }
   input[type="submit"].disabled, input[type="submit"]:disabled,
   input[type="reset"].disabled,
   input[type="reset"]:disabled,
@@ -817,7 +817,7 @@ button,
   #signup-form input[type="text"],
   #signup-form input[type="password"],
   #signup-form input[type="text"] {
-    width: 40em; }
+    width: 35em; }
   #signup-form > * {
     margin: 0 0 0 1em; }
   #signup-form > :first-child {
