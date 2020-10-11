@@ -5,10 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>股票代號查詢結果</title>
-
-<!-- <link href="setting/css/search.css" rel="stylesheet" type="text/css">-->
-
-<style type="text/css">
+<link rel="stylesheet" href="files/css/main.css">
+<!-- <style type="text/css">
 table {
 	border: 0;
 	width: 500px;
@@ -29,7 +27,7 @@ font {
 .row {
 	background-color: #96FED1;
 }
-</style>
+</style> -->
 
 <script type="text/javascript" src="setting/js/#"></script>
 </head>
@@ -45,7 +43,7 @@ font {
 		out.prnint(data.getAttribute("data"));
 	--%>
 
-<div>
+<div class="section-content">
 	<a href="index.jsp">回首頁</a>
 </div>
 
@@ -123,4 +121,5 @@ font {
 		<img src="https://fakeimg.pl/200x100/?retina=1&text=こんにちは&font=noto">
 	</div>
 </body>
+<script src="files/js/main.js"></script>
 </html>
