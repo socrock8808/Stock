@@ -9,12 +9,8 @@
 <title>sign_result</title>
 <link rel="stylesheet" href="../files/css/main.css">
 <script type="text/javascript">
-	//window.onbeforeunload = function(event) {
-	//	return "";
-	//}
 	function home() {
 		location.href="../index.jsp";
-		//history.back();
 	}
 	function modify() {
 		document.getElementById("refresh1").innerHTML = '<input type="submit" value="送出" />';
@@ -52,40 +48,39 @@
 			}
 			;
 		%>
-		<form class="form1" method="post" action="http://<%=application.getAttribute("IP")%>:8080/Stock/UpdateUser">
-			<table style="margin: 0 auto;" border="1">
+		<form id="signup-form" method="post" action="http://<%=application.getAttribute("IP")%>:8080/Stock/UpdateUser">
+			<table  style="width: 400px; margin: 0 auto;">
 				<tr>
-					<td class="row1">帳號</td>
+					<td class="row1">帳號:</td>
 					<td class="row2" id="user"><%=request.getParameter("User_Account")%>
 					</td>
 				</tr>
 				<tr>
-					<td class="row1">密碼</td>
+					<td class="row1">密碼:</td>
 					<td class="row2" id="password"><%=request.getParameter("User_Password")%><a
 						style="margin-left: 300;"></a></td>
 				</tr>
 				<tr>
-					<td class="row1">暱稱</td>
+					<td class="row1">暱稱:</td>
 					<td class="row2" id="name"><%=session.getAttribute("User_Name")%>
 					</td>
 				</tr>
 				<tr>
-					<td class="row1">性別</td>
+					<td class="row1">性別:</td>
 					<td class="row2" id="gender"><%=str1%></td>
 				</tr>
 				<tr>
-					<td class="row1">信箱</td>
+					<td class="row1">信箱:</td>
 					<td class="row2" id="email"><%=request.getParameter("User_Email")%>
 					</td>
 				</tr>
 				<tr>
-					<td class="row1">生日</td>
+					<td class="row1">生日:</td>
 					<td class="row2" id="birthday"><%=request.getParameter("User_Birthday")%>
 					</td>
 				</tr>
 			</table>
-			<input type="button" value="修改" onClick="modify()" /> <a
-				id="refresh1"></a>
+			<span id="refresh1"><input type="button" value="修改" onClick="modify()" /></span>
 			<input type="button" value="返回" onClick="home()" />
 		</form>		
 	</div>
