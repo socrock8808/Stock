@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="../files/css/main.css">
 <script src="../files/js/main.js"></script>
 <title>文章內文</title>
-<!-- <style type="text/css">
+<style type="text/css">
+/*
 div {
     display: block;
 }
@@ -29,25 +30,20 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
-
-.post {
+*/
+.post-reply {
 	background-color:#F0F0F0;
 	margin-top:auto;
 	margin-left:auto;
 	margin-right:75%;
 	margin-bottom:5px;
 }
-</style> -->
+</style>
 </head>
 
 <body>
-	<div>
-		<a href="../index.jsp" class="#">回首頁</a>
-	</div>
-	<div>
-		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout">登出</a>
-	</div>
-	<div>
+	<div class="section-content">
+		<a href="../index.jsp">回首頁</a>
 		<%
 			String back = "";
 			if(session.getAttribute("LastestArticle") != null)
@@ -55,26 +51,29 @@ html {
 			else
 				back = "http://"+application.getAttribute("IP")+":8080/Stock/LoadArticle";
 		%>
-		<a href="<%=back%>" class="#">回到討論板</a>
+		<a style="margin: 0 0 0 3em;" href="<%=back%>">回到討論板</a>
 	</div>
-	<div>
-		<%
+	<!-- <div>
+		<%--
 			String arti_User_id=request.getParameter("User_id");
 			String User_id = (String)session.getAttribute("UID");
 			if( User_id.equals(arti_User_id))
 				out.print("<a href='#?arti_id="+request.getParameter("arti_id")+"' class='#'>文章編輯</a>");
-		%>
+		--%>
+	</div>-->
+	<div class="third-content">
+		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout">登出</a>
 	</div>
-	<div>
-		<table border="1" class="art_content" style="width: 600px">
+	<div style="margin: 10% 0 0 27%;">
+		<table class="art_content" style="width: 600px">
 			<tr>
 				<td width="900rem" colspan="2" align="center"><%=request.getParameter("arti_title") %></td>
 			</tr>
 			<tr>
-				<td align="center">作者：<%=request.getParameter("User_Name") %></td>
+				<td align="left">作者：<%=request.getParameter("User_Name") %></td>
 			</tr>
 			<tr>
-				<td align="center">最後更新時間：<%=request.getParameter("arti_update") %></td>
+				<td align="left">最後更新時間：<%=request.getParameter("arti_update") %></td>
 				<td>瀏覽人數：<%=request.getParameter("arti_viewNum")%></td>
 			</tr>
 			<tr>
@@ -97,7 +96,7 @@ html {
 			for(int i=0;i<RCount;i++){
 			%>
 				<div>
-					<div class="post reply">
+					<div class="post-reply">
 						<div>
 							<span><%=reply[i][4] %></span>
 							<br>
@@ -118,14 +117,13 @@ html {
 		}
 	%>
 	<br><!-- 以下為回覆書寫區 -->
-	<div>
-		<span style='color:red'><%=session.getAttribute("Login")%></span>
-		<form action="http://<%=application.getAttribute("IP")%>:8080/Stock/NewReply?arti_id=<%=request.getParameter("arti_id")%>"
+	<div style="margin: 0px auto;">
+		<span style='color:#45eda4'><%=session.getAttribute("Login")%></span>
+		<form id="signup-form" action="http://<%=application.getAttribute("IP")%>:8080/Stock/NewReply?arti_id=<%=request.getParameter("arti_id")%>"
 		 		method="post" enctype="multipart/form-data">
-			<textarea name="reply_txt" rows="5" cols="50">請輸入內容</textarea>
-			<input type="submit" value="送出" name="upload"><br>
+			<textarea name="reply_txt" rows="5" cols="50" style="width: 500px;">請輸入內容</textarea>
 			上傳照片:<input type="file" name="photo" />
-		
+			<input type="submit" value="送出" name="upload"><br>
 		</form>
 	</div>
 
