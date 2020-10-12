@@ -31,8 +31,9 @@ html {
     -ms-text-size-adjust: 100%;
 }*/
 .test {
-	position: static;
-	margin: 0;
+	/*position: absolute;*/
+	position: relative;
+	margin: -65px 0 0 0;
 	overflow-y:auto;
 }
 .post-reply {

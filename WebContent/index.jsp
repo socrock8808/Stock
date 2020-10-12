@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="files/css/main.css">
 </head>
 <%if(application.getAttribute("IP") == null )
-	application.setAttribute("IP", "192.168.1.75");%>
+	application.setAttribute("IP", "localhost");%>
 <body class="is-preload">
 	<div class="section-content">
 		<%	//討論版顯示判斷

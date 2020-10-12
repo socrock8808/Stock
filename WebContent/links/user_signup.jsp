@@ -50,7 +50,11 @@
       }
 </script>
 <style>
-  input[type=date]::-webkit-datetime-edit { padding: 1px; background-color: black; }
+  /* input[type=date]::-webkit-datetime-edit { width:10em; background-color: black; } */
+	input[type=date]::-webkit-datetime-edit-text { color: black; padding: 0 .3em; }
+	input[type=date]::-webkit-datetime-edit-year-field { color: black; }
+	input[type=date]::-webkit-datetime-edit-month-field { color: black; }
+	input[type=date]::-webkit-datetime-edit-day-field { color: black;
 </style>
 </head>
 <body>
@@ -105,7 +109,7 @@
 				<td><input type="email" name="User_Email" required size="20"></td>
 			<tr>
 				<td align="center">生日</td>
-				<td><span style="font-color:balck;"><input type="Date" name="User_Birthday" required size="20"></span></td>
+				<td><input type="Date" name="User_Birthday" required size="20"></td>
 			</tr>
 		</table>
 		<p style="text-align: center;"><input style="margin: 0 1em 0 0;" type="submit" id="submit" value="確定"> <input type="reset"
