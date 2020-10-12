@@ -13,9 +13,12 @@
 	<div class="section-content">
 		<%	//討論版顯示判斷
 			if (session.getAttribute("Login") != null)
-				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/LoadArticle'>討論板</a>");
+				out.print("<a style='margin: 0 1em 0 0;' href='http://"+application.getAttribute("IP")+":8080/Stock/LoadArticle'>討論板</a>");
 		%>
-		<!-- <a href="#" type="hidden">自選股</a>  -->
+		<%	//自選股顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/LoadSelfStock'>自選股</a>");
+		%>
 	</div>
 	<div class="third-content">
 		<%	//註冊、登入顯示判斷
