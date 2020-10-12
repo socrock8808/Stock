@@ -48,7 +48,6 @@
 	<form id="search-form" method="GET"
 		action="http://<%=application.getAttribute("IP")%>:8080/Stock/InqStock" style="margin: 5px auto">
 		<input type="text" name="stock" id="stock" placeholder="股票名稱或股票代號" />
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="submit" style="margin: 0 0 0 1em;" value="查詢" />
 	</form>
 	<div style="padding: 0 0 200px 25%;">
