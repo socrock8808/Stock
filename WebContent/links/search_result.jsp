@@ -6,51 +6,18 @@
 <meta charset="UTF-8">
 <title>股票代號查詢結果</title>
 <link rel="stylesheet" href="files/css/main.css">
-<!-- <style type="text/css">
-table {
-	border: 0;
-	width: 500px;
-}
-
-font {
-	color: #000000;
-}
-
-.table-title {
-	background-color: #02F78E;
-}
-
-.table-colunm {
-	background-color: #02F78E;
-}
-
-.row {
-	background-color: #96FED1;
-}
-</style> -->
 
 <script type="text/javascript" src="setting/js/#"></script>
 </head>
-<body>
-
-	<%--@ page import="login.ConMysql"--%>
-	<%--
-		ConMysql con = new ConMysql();
-		con.conDb();
-		con.getStockData(column, id);
-	--%>
-	<%--
-		out.prnint(data.getAttribute("data"));
-	--%>
+<body class="is-preload">
 
 <div class="section-content">
 	<a href="index.jsp">回首頁</a>
 </div>
-
-	<table>
-		<tr class="title-bg">
-			<td colspan=10 valign=top align=center class="table-title"><b><a>股票資訊</a></b></td>
-		</tr>
+	<div class="header" style="text-align: center;">
+		<h1>股票資訊</h1>
+	</div>
+	<table border="1">
 		<tr valign=top class="table-colunm">
 			<td align=center nowrap=nowrap><font>股票代碼</font></td>
 			<td align=center nowrap=nowrap><font>證券名稱</font></td>
@@ -117,8 +84,8 @@ font {
 		</tr>
 	</table>
 
-	<div>
-		<img src="https://fakeimg.pl/200x100/?retina=1&text=こんにちは&font=noto">
+	<div style="margin: 1em 0 0 0; text-align: center; opacity: 0.3;">
+		<img width="500" height="300" alt="圖片失效" border="1" src="images/fake.jpg">
 	</div>
 </body>
 <script src="files/js/main.js"></script>
