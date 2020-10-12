@@ -29,7 +29,7 @@ public class CheckAccount extends HttpServlet {
 		if( check.equals("")) 
 			out.print("可以使用此帳號");
 		else
-			out.print("已有重複的帳號，請更換帳號");
+			out.print("此帳號已被使用");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
