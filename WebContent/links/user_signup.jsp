@@ -42,13 +42,16 @@
             if(xmlHTTP.status == 200)
             {
                 var str=xmlHTTP.responseText;
-                document.getElementById("message").innerHTML="<a>"+str+"</a>";
+                document.getElementById("message").innerHTML=str;
             }
           }
         }
         xmlHTTP.send();
       }
 </script>
+<style>
+  input[type=date]::-webkit-datetime-edit { padding: 1px; background-color: black; }
+</style>
 </head>
 <body>
 	<div class="section-content">

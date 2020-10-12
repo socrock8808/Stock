@@ -35,7 +35,6 @@ public class Servlet_Input_signup extends HttpServlet {
 		String uGender = request.getParameter("User_Gender");
 		String email = request.getParameter("User_Email");
 		String birthday = request.getParameter("User_Birthday");
-		
 		con.insert_signup(account, upassword, name, uGender, email, birthday);
 //		out.print(account);
 //		out.print(upassword);

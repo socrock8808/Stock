@@ -27,9 +27,9 @@ public class CheckAccount extends HttpServlet {
 		String account = request.getParameter("User_Account");
 		String check = con.getUserData("User_Account", account);
 		if( check.equals("")) 
-			out.print("可以使用此帳號");
+			out.print("<font color='green'>可以使用此帳號</font>");
 		else
-			out.print("此帳號已被使用");
+			out.print("<font color='red'>此帳號已被使用</font>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

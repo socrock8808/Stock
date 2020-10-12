@@ -29,14 +29,19 @@ html {
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+}*/
+.test {
+	position: static;
+	margin: 0;
+	overflow-y:auto;
 }
-*/
 .post-reply {
-	background-color:#F0F0F0;
-	margin-top:auto;
+	background-color:#4a4a4a;
+	margin: 0 30% 5px 27%;
+	/*margin-top:auto;
 	margin-left:auto;
 	margin-right:75%;
-	margin-bottom:5px;
+	margin-bottom:5px;*/
 }
 </style>
 </head>
@@ -61,11 +66,13 @@ html {
 				out.print("<a href='#?arti_id="+request.getParameter("arti_id")+"' class='#'>文章編輯</a>");
 		--%>
 	</div>-->
+
 	<div class="third-content">
 		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout">登出</a>
 	</div>
-	<div style="margin: 10% 0 0 27%;">
-		<table class="art_content" style="width: 600px">
+<div class="test">
+	<div style="margin: 0 0 0 27%;" >
+		<table class="art_content" style="width: 710px">
 			<tr>
 				<td width="900rem" colspan="2" align="center"><%=request.getParameter("arti_title") %></td>
 			</tr>
@@ -74,7 +81,7 @@ html {
 			</tr>
 			<tr>
 				<td align="left">最後更新時間：<%=request.getParameter("arti_update") %></td>
-				<td>瀏覽人數：<%=request.getParameter("arti_viewNum")%></td>
+				<td>瀏覽人次：<%=request.getParameter("arti_viewNum")%></td>
 			</tr>
 			<tr>
 				<td width="80%">內文：<%=request.getParameter("arti_txt") %></td>
@@ -117,15 +124,15 @@ html {
 		}
 	%>
 	<br><!-- 以下為回覆書寫區 -->
-	<div style="margin: 0px auto;">
+	<div style="margin: 5px auto 5px 27%;">
 		<span style='color:#45eda4'><%=session.getAttribute("Login")%></span>
 		<form id="signup-form" action="http://<%=application.getAttribute("IP")%>:8080/Stock/NewReply?arti_id=<%=request.getParameter("arti_id")%>"
 		 		method="post" enctype="multipart/form-data">
 			<textarea name="reply_txt" rows="5" cols="50" style="width: 500px;">請輸入內容</textarea>
 			上傳照片:<input type="file" name="photo" />
-			<input type="submit" value="送出" name="upload"><br>
+			<input type="submit" value="送出" name="upload">
 		</form>
 	</div>
-
+	</div>
 </body>
 </html>
