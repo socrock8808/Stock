@@ -8,29 +8,19 @@
 <link rel="stylesheet" href="../files/css/main.css">
 <script src="../files/js/main.js"></script>
 <title>討論區</title>
-<style type="text/css">
-.title {
-	text-align: center;
-}
-
-.board {
-	text-align: center;
-	width: 710px;
-}
-</style>
 </head>
 
 <body>
 	<div  class="section-content">
-		<a href="../index.jsp" class="#">回首頁</a>
+		<a href="../index.jsp">回首頁</a>
 	</div>
 	<div class="third-content">
-		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout" class="#">登出</a>
+		<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/Logout" >登出</a>
 	</div>
 	<div>
 		<a href="write_post.jsp">發佈文章</a>
 	</div>
-	<table border="1" class="board">
+	<table border="1">
 		<tr class="title">
 			<td width="90">編號</td>
 			<td width="400">文章標題</td>
@@ -52,6 +42,7 @@
 			}
 		%>
 	</table>
+	<div style="margin: 2em 0 0 0; text-align: center;">
 	<%  
 		int lastestId = (int)session.getAttribute("LastestId");
 		int id = (int)session.getAttribute("id");
@@ -61,7 +52,6 @@
 			<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/FirstArticle">第一頁</a>
 			<a href="http://<%=application.getAttribute("IP")%>:8080/Stock/PreArticle">上一頁</a>
 	<%	}%>
-	<a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
 	<%
 		if( id % 10 == 0)
 		{
@@ -80,7 +70,7 @@
 			<%}
 		}
 	%>
-	
+	</div>
 </body>
 </html>
 
