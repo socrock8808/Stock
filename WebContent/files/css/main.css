@@ -15,7 +15,7 @@ section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   /*border: 0;*/
-  font-size: 100%;
+  font-size: 200%;
   font: inherit;
   vertical-align: baseline; }
 
@@ -74,6 +74,7 @@ input, select, textarea {
   width: device-width; }
 
 body {
+	/*overflow-y: scroll;*/
   -ms-overflow-style: scrollbar; }
 
 @media screen and (max-width: 480px) {
@@ -90,16 +91,16 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   width: 100%; }
-  @media screen and (max-height: 640px) {
+  /*@media screen and (max-height: 640px) {
     html, body {
       height: auto;
-      min-height: 100%; } }
+      min-height: 100%; } }*/
 
 body {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
-  display: flex;
+  /*display: flex;*/
   -moz-flex-direction: column;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -246,7 +247,7 @@ body, input, select, textarea {
   line-height: 1.65em; }
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
-      font-size: 12pt; } }
+      font-size: 14pt; } }
   @media screen and (max-width: 1280px) {
     body, input, select, textarea {
       font-size: 11pt; } }
@@ -743,7 +744,7 @@ button,
   -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   background-color: #828282;
-  border-radius: 6px;
+  border-radius: 11px;
   border: 0;
   color: #ffffff !important;
   cursor: pointer;
@@ -809,32 +810,53 @@ button,
 
 /* Signup Form */
 #signup-form {
+  /*display: -moz-flex;*/
+  /*display: -webkit-flex;*/
+  /*display: -ms-flex;*/
+  /*display: flex;*/
+  position: relative; }
+  #signup-form input[type="text"],
+  #signup-form input[type="password"],
+  #signup-form input[type="email"]{
+    width: 10em; }
+  #signup-form > * {
+    margin: 1em; }
+  #signup-form > :first-child {
+    margin: 1em; }
+ .row1 {
+ 	height:50px;
+ 	text-align: center;}
+ .row2 {
+ 	text-align: left;}
+
+/* Search Form */
+#search-form {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   position: relative; }
-  #signup-form input[type="text"],
-  #signup-form input[type="password"],
-  #signup-form input[type="text"] {
+  #search-form input[type="text"],
+  #search-form input[type="password"],
+  #search-form input[type="text"] {
     width: 35em; }
-  #signup-form > * {
+  #search-form > * {
     margin: 0 0 0 1em; }
-  #signup-form > :first-child {
+  #search-form > :first-child {
     margin: 0 0 0 0; }
   @media screen and (max-width: 480px) {
-    #signup-form {
+    #search-form {
       -moz-flex-direction: column;
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column; }
-      #signup-form input[type="type"],
-      #signup-form input[type="password"],
-      #signup-form input[type="text"] {
+      #search-form input[type="type"],
+      #search-form input[type="password"],
+      #search-form input[type="text"] {
         width: 100%; }
-      #signup-form > * {
+      #search-form > * {
         margin: 1.25em 0 0 0; }
-      #signup-form .message {
+      #search-form .message {
         bottom: -1.5em;
         font-size: 0.9em;
         height: 1em;
@@ -842,6 +864,9 @@ button,
         line-height: inherit;
         margin-top: 0;
         position: absolute; } }
+        
+/* Board */
+
 
 /* Footer */
 #footer {
