@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="is-preload">
 	<div class="section-content">
 		<a href="../index.jsp">回首頁</a>
 		<a href="board.jsp" style="margin: 0 0 0 3em;">回到討論板</a>
@@ -49,5 +49,5 @@
 	</form>
 	</div>
 </body>
-<script src="../files/js/main.js"></script>
+<script src="../files/js/main2.js"></script>
 </html>

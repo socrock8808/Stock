@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../files/css/main.css">
-<script src="../files/js/main.js"></script>
+<script src="../files/js/main2.js"></script>
 <title>文章內文</title>
 <style type="text/css">
 /*

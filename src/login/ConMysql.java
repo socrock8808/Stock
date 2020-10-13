@@ -462,4 +462,59 @@ public class ConMysql{
 		}
 		return data;
 	}
+	/*根據股票搜尋智慧提示*/
+	public String getStockidInfo(String inq) {
+		/*執行指令*/
+		sql =	"select stock_id from stock_lastest"
+				+" where stock_id like '"+inq+"%' limit 10;";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String result = "";
+		int count=0;
+		try {
+			while(res.next())
+			{
+				result += res.getString("stock_id");
+				if(count != 9) {
+					result += ",";
+					count++;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	/*根據股票搜尋智慧提示*/
+	public String getStocknameInfo(String inq) {
+		/*執行指令*/
+		sql =	"select stock_name from stock_lastest"
+				+" where stock_name like '"+inq+"%' limit 10;";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String result = "";
+		int count=0;
+		try {
+			while(res.next())
+			{
+				result += res.getString("stock_id");
+				if(count != 9) {
+					result += ",";
+					count++;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }

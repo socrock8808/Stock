@@ -6,11 +6,12 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../files/css/main.css">
-<script src="../files/js/main.js"></script>
+<script src="files/js/main2.js"></script>
 <title>討論區</title>
+
 </head>
 
-<body>
+<body class="is-preload">
 	<div  class="section-content">
 		<a href="../index.jsp">回首頁</a>
 	</div>

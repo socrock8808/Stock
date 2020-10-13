@@ -85,5 +85,5 @@
 		</form>		
 	</div>
 </body>
-<script src="../files/js/main.js"></script>
+<script src="../files/js/main2.js"></script>
 </html>

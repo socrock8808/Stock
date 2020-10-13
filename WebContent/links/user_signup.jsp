@@ -57,7 +57,7 @@
 	input[type=date]::-webkit-datetime-edit-day-field { color: black;
 </style>
 </head>
-<body>
+<body class="is-preload">
 	<div class="section-content">
 		<a href="../index.jsp">回首頁</a>
 	</div>
@@ -115,6 +115,6 @@
 		<p style="text-align: center;"><input style="margin: 0 1em 0 0;" type="submit" id="submit" value="確定"> <input type="reset"
 			value="重設"></p>
 	</form>
-<script src="../files/js/main.js"></script>
+<script src="../files/js/main2.js"></script>
 </body>
 </html>
