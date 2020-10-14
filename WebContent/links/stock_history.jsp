@@ -17,8 +17,8 @@
 		<%	//註冊、登入顯示判斷
 			if (session.getAttribute("Login") == null)
 			{
-				out.print("<a class='section-item' href='links/user_signup.jsp' style='margin-left: 300'>註冊</a> ");
-				out.print("<a class='section-item' id='member' href='links/user_login.jsp'>登入</a>");
+				out.print("<a class='section-item' href='user_signup.jsp' style='margin-left: 300'>註冊</a> ");
+				out.print("<a class='section-item' id='member' href='user_login.jsp'>登入</a>");
 			}
 		%>
 		<%	//會員管理顯示判斷
