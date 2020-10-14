@@ -19,8 +19,8 @@ public class LoadSelfStock extends HttpServlet {
 		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();
 		String path="links/stock_self.jsp";
-		int User_id=Integer.parseInt((String)session.getAttribute("UID"));
 		con.conDb();
+		int User_id=Integer.parseInt((String)session.getAttribute("UID"));
 		int count = con.getSelfStockCount(User_id);
 		String[][] result = con.getSelfStockWtihUser(count, User_id);
 		session.setAttribute("stock_result", result);

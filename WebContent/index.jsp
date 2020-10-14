@@ -17,7 +17,7 @@
 		%>
 		<%	//自選股顯示判斷
 			if (session.getAttribute("Login") != null)
-				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/LoadSelfStock'>自選股</a>");
+				out.print("<a href='http://"+application.getAttribute("IP")+":8080/Stock/LoadStockResult'>自選股</a>");
 		%>
 	</div>
 	<div class="third-content">
@@ -49,7 +49,7 @@
 	</div>
 
 	<form id="search-form" method="GET"
-		action="http://<%=application.getAttribute("IP")%>:8080/Stock/InqStock" style="margin: 5px auto">
+		action="http://<%=application.getAttribute("IP")%>:8080/Stock/LoadStockResult" style="margin: 5px auto">
 		<input type="text" name="stock" id="stock" placeholder="股票名稱或股票代號" />
 		<input type="submit" style="margin: 0 0 0 1em;" value="查詢" />
 	</form>

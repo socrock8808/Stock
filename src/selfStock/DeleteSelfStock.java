@@ -21,7 +21,7 @@ public class DeleteSelfStock extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		ConMysql con = new ConMysql();
-		String path="/LoadSelfStock";
+		String path="/LoadStockResult";
 		String User_id=(String)session.getAttribute("UID");
 		String stock_id = request.getParameter("stock_id");
 		con.conDb();
