@@ -20,12 +20,12 @@
 	<div style="margin: 0 2em 1em auto">
 		<input type="button" value="發布文章" onclick="location.href='write_post.jsp'" />
 	</div>
-	<table border="1">
-		<tr class="title" style="letter-spacing: 13px; text-align: center;">
-			<td width="90"><h4>編號</h4></td>
-			<td width="400"><h4>文章標題</h4></td>
-			<td width="120"><h4>作者</h4></td>
-			<td width="90"><h4>日期</h4></td>
+	<table border="1" style="vertical-align: middle;">
+		<tr style="letter-spacing: 13px; text-align: center;">
+			<td style="width: 10%;"><h4 style="margin: 0">編號</h4></td>
+			<td style="width: 50%;"><h4 style="margin: 0">文章標題</h4></td>
+			<td style="width: 20%;"><h4 style="margin: 0">作者</h4></td>
+			<td style="width: 20%;"><h4 style="margin: 0">日期</h4></td>
 		</tr>
 		<%
 			String[][] no = (String[][]) session.getAttribute("array");

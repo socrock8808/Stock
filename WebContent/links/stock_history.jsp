@@ -80,7 +80,14 @@
 		</tr>
 		<%
 			String[][] no = (String[][]) session.getAttribute("stock_history");
+			String a;
 			for (int i = 0; i < (int) session.getAttribute("stock_hisCount"); i++) {
+				if(Float.parseFloat(no[i][8]) == 0)
+					a = "";
+				else if( Float.parseFloat(no[i][8]) > 0)
+					a = "style='color:red'";
+				else
+					a = "style='color:green'";
 		%>
 		<tr class="row">
 			<td align="center" nowrap><%=no[i][2]%></td>
@@ -88,8 +95,8 @@
 			<td align="center" nowrap><%=no[i][4]%></td>
 			<td align="center" nowrap><%=no[i][5]%></td>
 			<td align="center" nowrap><%=no[i][6]%></td>
-			<td align="center" nowrap><%=no[i][7]%></td>
-			<td align="center" nowrap><%=no[i][8]%></td>
+			<td align="center" nowrap <%=a%>><%=no[i][7]%></td>
+			<td align="center" nowrap <%=a%>><%=no[i][8]%></td>
 			<td align="center" nowrap><%=no[i][9]%></td>
 			<td align="center" nowrap><%=no[i][10]%></td>
 		</tr>

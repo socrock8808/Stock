@@ -77,8 +77,8 @@ html {
 <div class="post">
 	<div style="margin: 0 0 0 25%;" >
 		<div style="width: 710px; background-color:#4a4a4a;">
-			<a href="edit_post.jsp">[編輯]</a>
-			<a href="#">[刪除]</a>
+			<!-- <a href="edit_post.jsp">[編輯]</a>
+			<a href="#">[刪除]</a> -->
 			<span id="refresh1"></span>
 		</div>
 		<table class="art_content" style="width: 710px; background-color:#4a4a4a;">
@@ -113,8 +113,8 @@ html {
 			%>
 				<div>
 					<div class="post-reply">
-						<a href="#">[編輯]</a>
-						<a href="#">[刪除]</a>
+						<!-- <a href="#">[編輯]</a>
+						<a href="#">[刪除]</a> -->
 						<div>
 							<span><%=reply[i][4] %></span>
 							<br>

@@ -64,24 +64,31 @@
 	</div>
 	<%
 		if( session.getAttribute("InqResult") != null){%>
-			<div style="width: 5em; letter-spacing: 1px; text-align: center; background-color: #828282; opacity: 0.8; margin: 1em auto 5px 2em; border-radius: 8px;">
+			<div style="width: 5em; height: 1.6em; text-align: center; background-color: #828282; opacity: 0.8; margin: 1em auto 5px 2em; border-radius: 8px;">
 				<h4>搜尋結果</h4>
 			</div>
 			<table border="1">
 				<tr valign=top class="table-colunm">
-					<td align=center nowrap=nowrap width="135px"><font>股票代碼</font></td>
-					<td align=center nowrap=nowrap width="170px"><font>證券名稱</font></td>
-					<td align=center nowrap=nowrap width="150px"><font>成交股數</font></td>
-					<td align=center nowrap=nowrap width="205px"><font>成交金額</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>開盤價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>最高價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>最低價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>收盤價</font></td>
-					<td align=center nowrap=nowrap width="80px"><font>漲跌價差</font></td>
-					<td align=center nowrap=nowrap width="170px"><font>成交筆數</font></td>
+					<td align=center nowrap=nowrap width="10%"><font>股票代碼</font></td>
+					<td align=center nowrap=nowrap width="10%"><font>證券名稱</font></td>
+					<td align=center nowrap=nowrap width="11%"><font>成交股數</font></td>
+					<td align=center nowrap=nowrap width="18%"><font>成交金額</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>開盤價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>最高價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>最低價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>收盤價</font></td>
+					<td align=center nowrap=nowrap width="5%"><font>漲跌價差</font></td>
+					<td align=center nowrap=nowrap width="12%"><font>成交筆數</font></td>
 				</tr>
 				<%
-					if(request.getParameter("stock_id") != null){%>
+					String seh;
+					if(request.getParameter("stock_id") != null){
+						if(Float.parseFloat(request.getParameter("stock_diff")) == 0)
+							seh = "";
+						else if( Float.parseFloat(request.getParameter("stock_diff")) > 0)
+							seh = "style='color:red'";
+						else
+							seh = "style='color:green'";%>
 						<tr class="row">
 							<td align="center" nowrap>
 								<a href='http://<%=application.getAttribute("IP")%>:8080/Stock/LoadHisStock?stock_id=<%=request.getParameter("stock_id")%>'>
@@ -108,16 +115,16 @@
 							<td align="center" nowrap>
 								<%=request.getParameter("stock_min")%>
 							</td>
-							<td align="center" nowrap>
+							<td align="center" nowrap <%=seh%>>
 								<%=request.getParameter("stock_close")%>
 							</td>
-								<td align="center" nowrap>
+								<td align="center" nowrap <%=seh%>>
 								<%=request.getParameter("stock_diff")%>
 							</td>
 							<td align="center" nowrap>
 								<%=request.getParameter("stock_transaction")%>
 							</td>
-							<td>
+							<td nowrap=nowrap width="6%">
 								<%
 									if (session.getAttribute("Login") != null) {%> 
 								<a
@@ -140,28 +147,35 @@
 	%>
 	<%
 		if( session.getAttribute("Login") != null){%>
-			<div style="width: 5em; letter-spacing: 7px; text-align: center; background-color: #828282; opacity: 0.8; margin: 1em auto 5px 2em; border-radius: 8px;">
+			<div style="width: 5em; letter-spacing: 2px;height: 1.6em; text-align: center; background-color: #828282; opacity: 0.8; margin: 1em auto 5px 2em; border-radius: 8px;">
 				<h4>自選股</h4>
 			</div>
 			<table border="1">
 				<tr valign=top class="table-colunm">
-					<td align=center nowrap=nowrap width="135px"><font>股票代碼</font></td>
-					<td align=center nowrap=nowrap width="170px"><font>證券名稱</font></td>
-					<td align=center nowrap=nowrap width="150px"><font>成交股數</font></td>
-					<td align=center nowrap=nowrap width="205px"><font>成交金額</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>開盤價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>最高價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>最低價</font></td>
-					<td align=center nowrap=nowrap width="100px"><font>收盤價</font></td>
-					<td align=center nowrap=nowrap width="80px"><font>漲跌價差</font></td>
-					<td align=center nowrap=nowrap width="170px"><font>成交筆數</font></td>
+					<td align=center nowrap=nowrap width="10%"><font>股票代碼</font></td>
+					<td align=center nowrap=nowrap width="10%"><font>證券名稱</font></td>
+					<td align=center nowrap=nowrap width="11%"><font>成交股數</font></td>
+					<td align=center nowrap=nowrap width="18%"><font>成交金額</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>開盤價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>最高價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>最低價</font></td>
+					<td align=center nowrap=nowrap width="7%"><font>收盤價</font></td>
+					<td align=center nowrap=nowrap width="5%"><font>漲跌價差</font></td>
+					<td align=center nowrap=nowrap width="12%"><font>成交筆數</font></td>
 				</tr>
 				<!-- (int) session.getAttribute("stock_count") -->
 				<% 
 					if( (int)session.getAttribute("stock_count") > 0){%>
 						<%
+							String sef;
 							String[][] no = (String[][]) session.getAttribute("stock_result");
 							for (int i = 0; i < (int) session.getAttribute("stock_count"); i++) {
+								if(Float.parseFloat(no[i][8]) == 0)
+									sef = "";
+								else if( Float.parseFloat(no[i][8]) > 0)
+									sef = "style='color:red'";
+								else
+									sef = "style='color:green'";
 						%>
 						<tr class="row">
 							<td align="center" nowrap>
@@ -179,10 +193,10 @@
 							<td align="center" nowrap><%=no[i][4]%></td>
 							<td align="center" nowrap><%=no[i][5]%></td>
 							<td align="center" nowrap><%=no[i][6]%></td>
-							<td align="center" nowrap><%=no[i][7]%></td>
-							<td align="center" nowrap><%=no[i][8]%></td>
+							<td align="center" nowrap <%=sef%>><%=no[i][7]%></td>
+							<td align="center" nowrap <%=sef%>><%=no[i][8]%></td>
 							<td align="center" nowrap><%=no[i][9]%></td>
-							<td><a
+							<td nowrap=nowrap width="6%"><a
 								href="http://localhost:8080/Stock/DeleteSelfStock?stock_id=<%=no[i][0]%>">刪除</a>
 							</td>
 						</tr>
