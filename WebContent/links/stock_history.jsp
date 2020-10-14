@@ -14,13 +14,30 @@
 		<a href="../index.jsp">回首頁</a>
 	</div>
 	<div class="third-content">
-		<a href="http://localhost:8080/Stock/Logout">登出</a>
-		<%
+		<%	//註冊、登入顯示判斷
+			if (session.getAttribute("Login") == null)
+			{
+				out.print("<a class='section-item' href='links/user_signup.jsp' style='margin-left: 300'>註冊</a> ");
+				out.print("<a class='section-item' id='member' href='links/user_login.jsp'>登入</a>");
+			}
+		%>
+		<%	//會員管理顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a style='margin: 0 1em 0 0;' href='http://"+application.getAttribute("IP")+":8080/Stock/User_res'>會員管理</a>");
+		%>
+		<%	//登出顯示判斷
+			if (session.getAttribute("Login") != null)
+				out.print("<a class='section-item'"
+							+"href='http://"+application.getAttribute("IP")+":8080/Stock/Logout'"
+							+"style='margin-left: 300'>登出</a>");
+		%>
+		<%	//使用者名稱顯示判斷
+			if (session.getAttribute("Login") != null)
 				out.print("<br><span style='margin: 0 3em 0 0; color:#45eda4'>" + session.getAttribute("Login") + "</span><p>您好！</p>");
 		%>
 	</div>
 	<form id="search-form" method="GET"
-		action="http://localhost:8080/Stock/InqStock" style="margin: 5px auto">
+		action="http://localhost:8080/Stock/LoadStockResult" style="margin: 5px auto">
 		<input type="text" name="stock" id="stock" placeholder="股票名稱或股票代號" />
 		<input type="submit" style="margin: 0 0 0 1em;" value="查詢" />
 	</form>
@@ -44,17 +61,10 @@
 		%>
 		
 	</div>
+	<% %>
 	<div>
-		<p>股票代碼: 
-				<%
-					out.print(request.getParameter("stock_id"));
-				%>
-		</p>
-		<p>證券名稱:
-				<%
-					out.print(session.getAttribute("stock_name"));
-				%>
-		</p>
+		<p>股票代碼:<%=request.getParameter("stock_id")%></p>
+		<p>證券名稱:<%=request.getParameter("stock_name")%></p>
 	</div>
 	<table border="1">
 		<tr valign=top class="table-colunm">
@@ -69,12 +79,10 @@
 			<td align=center nowrap=nowrap><font>日期</font></td>
 		</tr>
 		<%
-			String[][] no = (String[][]) session.getAttribute("stock_history###");
-			for (int i = 0; i < (int) session.getAttribute("stock_count###"); i++) {
+			String[][] no = (String[][]) session.getAttribute("stock_history");
+			for (int i = 0; i < (int) session.getAttribute("stock_hisCount"); i++) {
 		%>
 		<tr class="row">
-			<td align="center" nowrap><%=no[i][0]%></td>
-			<td align="center" nowrap><%=no[i][1]%></td>
 			<td align="center" nowrap><%=no[i][2]%></td>
 			<td align="center" nowrap><%=no[i][3]%></td>
 			<td align="center" nowrap><%=no[i][4]%></td>
@@ -82,6 +90,8 @@
 			<td align="center" nowrap><%=no[i][6]%></td>
 			<td align="center" nowrap><%=no[i][7]%></td>
 			<td align="center" nowrap><%=no[i][8]%></td>
+			<td align="center" nowrap><%=no[i][9]%></td>
+			<td align="center" nowrap><%=no[i][10]%></td>
 		</tr>
 		<%
 			}

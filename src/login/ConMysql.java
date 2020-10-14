@@ -303,6 +303,64 @@ public class ConMysql{
 		}
 		return result;
 	}
+	/*根據stock_id取得歷史股總數*/
+	public int getHisStockCount(String stock_id)
+	{
+		/*執行指令*/
+		sql = "SELECT count(*) FROM TestDB.stock_history "
+			+"where stock_id='"+stock_id+"';";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		int data = 0;
+		try {
+			while(res.next())
+			{
+				data = res.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	/*根據股票編號取得歷史股票資料*/
+	public String[][] getStockHistory(int SCount,String stock_id) {
+		/*執行指令*/
+		sql = "SELECT * FROM TestDB.stock_history "
+			+"where stock_id='"+stock_id+"'"
+			+" order by stock_date DESC limit 10;";
+		try {
+			res = stat.executeQuery(sql);
+		} catch (SQLException e) {
+			System.out.print("sql執行失敗");
+		}
+		/*取出資料*/
+		String[][] result = new String[SCount][11];
+		int count=0;
+		try {
+			while(res.next())
+			{
+				result[count][0] = res.getString("stock_id");
+				result[count][1] = res.getString("stock_name");
+				result[count][2] = res.getString("stock_trade");
+				result[count][3] = res.getString("stock_trunover");
+				result[count][4] = res.getString("stock_open");
+				result[count][5] = res.getString("stock_max");
+				result[count][6] = res.getString("stock_min");
+				result[count][7] = res.getString("stock_close");
+				result[count][8] = res.getString("stock_diff");
+				result[count][9] = res.getString("stock_transaction");
+				result[count][10] = res.getString("stock_date");
+				count++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	/*新增自選股進資料庫*/
 	public void addSelfStock(String stock_id,String User_id) {
 		/*執行指令*/

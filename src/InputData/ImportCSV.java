@@ -15,7 +15,7 @@ public class ImportCSV {
 		//連資料庫
 		Connection dbCon = null;
 	    Statement stmt = null;
-	    String[] item=new String[9];
+	    String[] item=new String[10];
 	    String sDriver="com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/TestDB?serverTimezone=CST";
 		String user = "root"; //資料庫使用者
@@ -55,13 +55,22 @@ public class ImportCSV {
 					/** 讀取 **/
 					try 
 					{
-						stmt.execute("insert into stock_lastest(stock_id,stock_name,stock_trade,"
-														+ "stock_trunover,stock_open,stock_max,"
-														+ "stock_min,stock_close,stock_diff,"
-														+ "stock_transaction) "
-														+ "values('"+item[0]+"','"+item[1]+"','"+item[2]
-														+"','"+item[3]+"','"+item[4]+"','"+item[5]
-														+"','"+item[6]+"','"+item[7]+"','"+item[8]+"','"+item[9]+"')");       
+						/*lastest*/
+//						stmt.execute("insert into stock_lastest(stock_id,stock_name,stock_trade,"
+//														+ "stock_trunover,stock_open,stock_max,"
+//														+ "stock_min,stock_close,stock_diff,"
+//														+ "stock_transaction) "
+//														+ "values('"+item[0]+"','"+item[1]+"','"+item[2]
+//														+"','"+item[3]+"','"+item[4]+"','"+item[5]
+//														+"','"+item[6]+"','"+item[7]+"','"+item[8]+"','"+item[9]+"')");
+						/*historty*/
+						stmt.execute("insert into stock_history(stock_id,stock_name,stock_trade,"
+								+ "stock_trunover,stock_open,stock_max,"
+								+ "stock_min,stock_close,stock_diff,"
+								+ "stock_transaction,stock_date) "
+								+ "values('"+item[0]+"','"+item[1]+"','"+item[2]
+								+"','"+item[3]+"','"+item[4]+"','"+item[5]
+								+"','"+item[6]+"','"+item[7]+"','"+item[8]+"','"+item[9]+"','2020-09-25')");
 					}catch(Exception e) {}
     			}
 	            reader.close();

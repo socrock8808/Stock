@@ -84,10 +84,14 @@
 					if(request.getParameter("stock_id") != null){%>
 						<tr class="row">
 							<td align="center" nowrap>
-								<a href="#"><%=request.getParameter("stock_id")%></a>
+								<a href='http://<%=application.getAttribute("IP")%>:8080/Stock/LoadHisStock?stock_id=<%=request.getParameter("stock_id")%>'>
+									<%=request.getParameter("stock_id")%>
+								</a>
 							</td>
 							<td align="center" nowrap>
-								<a href="#"><%=request.getParameter("stock_name")%></a>
+								<a href='http://<%=application.getAttribute("IP")%>:8080/Stock/LoadHisStock?stock_id=<%=request.getParameter("stock_id")%>'>
+									<%=request.getParameter("stock_name")%>
+								</a>
 							</td>
 							<td align="center" nowrap>
 								<%=request.getParameter("stock_trade")%>
@@ -160,8 +164,16 @@
 							for (int i = 0; i < (int) session.getAttribute("stock_count"); i++) {
 						%>
 						<tr class="row">
-							<td align="center" nowrap><a href="#"><%=no[i][0]%></a></td>
-							<td align="center" nowrap><a href="#"><%=no[i][1]%></a></td>
+							<td align="center" nowrap>
+								<a href='http://<%=application.getAttribute("IP")%>:8080/Stock/LoadHisStock?stock_id=<%=no[i][0]%>'>
+									<%=no[i][0]%>
+								</a>
+							</td>
+							<td align="center" nowrap>
+								<a href='http://<%=application.getAttribute("IP")%>:8080/Stock/LoadHisStock?stock_id=<%=no[i][0]%>'>
+									<%=no[i][1]%>
+								</a>
+							</td>
 							<td align="center" nowrap><%=no[i][2]%></td>
 							<td align="center" nowrap><%=no[i][3]%></td>
 							<td align="center" nowrap><%=no[i][4]%></td>
