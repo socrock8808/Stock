@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*所有關於資料庫存取的方法*/
 public class ConMysql{
 	private Connection conn = null;
 	private Statement stat = null;

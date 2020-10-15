@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import login.ConMysql;
 
 /**
- * Servlet implementation class DeleteSelfStock
+ * 刪除自選股
  */
 @WebServlet("/DeleteSelfStock")
 public class DeleteSelfStock extends HttpServlet {
@@ -20,12 +20,12 @@ public class DeleteSelfStock extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
-		ConMysql con = new ConMysql();
-		String path="/LoadStockResult";
-		String User_id=(String)session.getAttribute("UID");
-		String stock_id = request.getParameter("stock_id");
-		con.conDb();
-		con.deleteSelfStock(stock_id, User_id);
+		ConMysql con = new ConMysql();//建立資料庫方法物件
+		String path="/LoadStockResult";//目標位置
+		String User_id=(String)session.getAttribute("UID");//取得使用者編號
+		String stock_id = request.getParameter("stock_id");//取得御刪除的自選股編號
+		con.conDb();//連接資料庫
+		con.deleteSelfStock(stock_id, User_id);//刪除自選股
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 	

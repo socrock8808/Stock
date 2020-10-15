@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import login.ConMysql;
 
 /**
- * Servlet implementation class CheckAccount
+ * 檢應是否有重複帳號，為應前端ajax
  */
 @WebServlet("/CheckAccount")
 public class CheckAccount extends HttpServlet {
@@ -22,11 +22,11 @@ public class CheckAccount extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		ConMysql con = new ConMysql();
-		con.conDb();
-		String account = request.getParameter("User_Account");
-		String check = con.getUserData("User_Account", account);
-		if( check.equals("")) 
+		ConMysql con = new ConMysql();//建立資料庫方法物件
+		con.conDb();//連接資料庫
+		String account = request.getParameter("User_Account");//取得使用者輸入的帳號
+		String check = con.getUserData("User_Account", account);//查詢資料庫
+		if( check.equals("")) //若為空字串，表示無重複之帳號
 			out.print("<font color='green'>可以使用此帳號</font>");
 		else
 			out.print("<font color='red'>此帳號已被使用</font>");

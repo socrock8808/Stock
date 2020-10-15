@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Encoder1
+ * 過濾回覆的包裹器
  */
 @WebFilter("/NewReply")
 public class Encoder1 extends HttpFilter{

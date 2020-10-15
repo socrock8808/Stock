@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class Encoder
+ * 過濾文章的包裹器
  */
 @WebFilter("/NewArticle")
 public class Encoder extends HttpFilter {
