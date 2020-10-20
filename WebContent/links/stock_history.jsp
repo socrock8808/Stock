@@ -6,7 +6,12 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../files/css/main.css">
-<title>討論區</title>
+<style type="text/css">
+div, p {
+	vertical-align: inline;
+}
+</style>
+<title>股票歷史資料</title>
 </head>
 
 <body class="is-preload">
@@ -61,12 +66,11 @@
 		%>
 		
 	</div>
-	<% %>
 	<div>
 		<p>股票代碼:<%=request.getParameter("stock_id")%></p>
 		<p>證券名稱:<%=request.getParameter("stock_name")%></p>
 	</div>
-	<table border="1">
+	<table border="1" style="margin: 0;">
 		<tr valign=top class="table-colunm">
 			<td align=center nowrap=nowrap><font>成交股數</font></td>
 			<td align=center nowrap=nowrap><font>成交金額</font></td>
@@ -104,10 +108,51 @@
 			}
 		%>
 	</table>
-	<div style="margin: 1em 0 0 0; text-align: center; opacity: 0.3;">
-		<img width="500" height="300" alt="圖片失效" border="1" src="images/fake.jpg">
-	</div>
+	<div id="chartContainer" style="width: 100%;"></div>
 	 
 <script src="../files/js/main2.js"></script>
+<!-- new -->
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+  var dataPoints = [];
+  var stockChart = new CanvasJS.StockChart("chartContainer",{
+    theme: "light2",
+    charts: [{
+      title: {
+        text: '<%=request.getParameter("stock_id")%> <%=request.getParameter("stock_name")%>'
+      },
+      axisY: {
+        prefix: "$"
+      },
+      data: [{
+        type: "candlestick",
+        yValueFormatString: "$#,###.##",
+        dataPoints : dataPoints
+      }]
+    }] /* ,
+    navigator: {
+      slider: {
+        minimum: new Date(2018, 04, 01),
+        maximum: new Date(2018, 07, 31)
+      }
+    } */
+  });
+  $.getJSON("https://canvasjs.com/data/docs/btcusd2018.json", function(data) {
+    /* for(var i = 0; i < data.length; i++){
+      dataPoints.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)]});
+    } */
+    <%
+		for (int i = 0; i < (int) session.getAttribute("stock_hisCount"); i++){%>
+			dataPoints.push({x:new Date("<%=no[i][10]%>"), y:[Number(<%=no[i][4]%>),Number(<%=no[i][5]%>),Number(<%=no[i][6]%>),Number(<%=no[i][7]%>)]});
+		<%}
+    %>
+    stockChart.render();
+  });
+}
+</script>
+
+<!-- new -->
 </body>
 </html>

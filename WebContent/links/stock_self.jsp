@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="../files/css/main.css">
 <script src="../files/js/main2.js"></script>
-<title>討論區</title>
+<title>自選股</title>
 </head>
 
 <body class="is-preload">

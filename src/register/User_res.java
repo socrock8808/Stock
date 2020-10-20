@@ -1,4 +1,4 @@
-package resister;
+package register;
 
 import java.io.IOException;
 

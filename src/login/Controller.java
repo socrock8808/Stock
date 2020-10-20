@@ -26,9 +26,17 @@ public class Controller extends HttpServlet {
 		ConMysql con = new ConMysql();//建立資料庫方法物件
 		String getur = request.getParameter("user"); //接收使用者帳號
 		String getpd = request.getParameter("password");//接收使用者密碼
+		String getckimg = request.getParameter("LoginCheckImage");//接收使用者驗證碼
+		String ckimg = (String)session.getAttribute("LoginCheckImage");//接收系統驗證碼
 		String ckpd = ""; //撈出來的密碼
 		String path = ErrorPath; //轉發路徑
 		String errors = "";
+		/*驗證驗證碼*/
+		if( !getckimg.equals(ckimg)) {
+			session.setAttribute("LoginResult", "驗證碼填寫錯誤");//回傳錯誤訊息
+			response.sendRedirect(path);
+			return;
+		}
 		/*驗證帳密*/
 		if(!validusername(getur) || !validpassword(getpd))
 			errors = "帳號或密碼填寫錯誤";
