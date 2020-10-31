@@ -33,7 +33,8 @@
           xmlHTTP=new XMLHttpRequest();
         }
         var ac = document.getElementById("account").value;
-        xmlHTTP.open("GET",'http://<%=application.getAttribute("IP")%>:8080/Stock/CheckAccount?User_Account='
+        xmlHTTP.open("GET",'http://<%=application.getAttribute("IP")%>
+	:8080/Stock/CheckAccount?User_Account='
 								+ ac, true);
 
 		xmlHTTP.onreadystatechange = function check_status() {
@@ -51,7 +52,6 @@
 /* input[type=date]::-webkit-datetime-edit { width:10em; background-color: black; } */
 input[type="date"]::-webkit-datetime-edit-text {
 	color: black;
-	padding: 0 .3em;
 }
 
 input[type="date"]::-webkit-datetime-edit-year-field {
@@ -67,9 +67,13 @@ input[type="date"]::-webkit-datetime-edit-day-field {
 }
 
 input [type="text"], input[type="password"], input[type="email"], input[type="date"],
-	select, textarea {
+	input[type="radio"], select, textarea {
 	display: inline;
 	width: 100%;
+}
+
+div {
+	vertical-align: middle;
 }
 
 img {
@@ -80,10 +84,8 @@ span {
 	vertical-align: middle;
 }
 
-.radio {
-	vertical-align: middle;
-	display: inline;
-	float: none;
+p {
+	margin: 0 0 0 0;
 }
 </style>
 </head>
@@ -96,76 +98,75 @@ span {
 	</div>
 	<form method="post" id="signup-form" style="margin: 0 auto;"
 		action="http://<%=application.getAttribute("IP")%>:8080/Stock/Servlet_Input_signup">
-		<table style="text-align: center; border: 0;">
-			<tr>
-				<td>帳號:</td>
-				<td><input type="text" name="User_Account" required size="20"
-					style="margin: 0.5em 0 0 0;" id="account"> <span
-					id="message"></span></td>
-				<td><input type="button" name="aa" value="驗證" onClick="check()"
-					required size="20" class="register-submit"></td>
-			</tr>
-			<tr>
-				<td>密碼:</td>
-				<td><input type="text" name="User_Password" id="pw1"
-					autocomplete="off" pattern="[a-zA-Z0-9]{8,16}"
-					placeholder="請輸入8-16位字元" required size="20"
-					style="margin: 0.5em 0 0 0;"></td>
-			</tr>
-			<tr>
-				<td>確認密碼:</td>
-				<td><input type="text" name="confirm_Password" id="pw2"
-					autocomplete="off" pattern="[a-zA-Z0-9]{8,16}"
-					placeholder="再一次輸入密碼" onkeyup="checkpw()" required size="20"
-					style="margin: 0.5em 0 0 0;"><span id="chk"></span></td>
-			</tr>
-			<tr>
-				<td>暱稱:</td>
-				<td><input type="text" name="User_Name" required size="20"
-					style="margin: 0.5em 0 0 0;"></td>
-			</tr>
-			<tr>
-				<td>性別:</td>
-				<td class="radio"><input type="radio" id="male"
-					name="User_Gender" required value="1"> <label for="male"
-					style="margin: 10px 0 0 0;">男</label> <input type="radio"
-					id="female" name="User_Gender" value="0" required
-					style="margin: 0 0 0 0.1em;"> <label for="female">女</label></td>
-			</tr>
-			<tr>
-				<td>信箱:</td>
-				<td><input type="email" name="User_Email" required size="20"
-					style="margin: 0;"></td>
-			<tr>
-				<td>生日:</td>
-				<td><input type="Date" name="User_Birthday" required size="20"
-					style="margin: 0.5em 0 0 0;"></td>
-			</tr>
-			<tr>
-				<td>輸入驗證碼:</td>
-				<td><input type="text" name="LoginCheckImage" id="Image"
-					size="20" style="margin: 0.5em 0 0 0;"></td>
-				<td><div>
-						<img src="LoginCheckImage.jsp" alt="newImage">
-					</div></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<span>
-						<%
-							if (session.getAttribute("RegisterResult") != null)
-								out.print("<font style='color:red'>" + session.getAttribute("RegisterResult") + "</font>");
-							session.removeAttribute("RegisterResult");
-						%>
-					</span>
-				</td>
-			</tr>
-		</table>
-		<p style="text-align: center;">
-			<input style="margin: 0 1em 0 0;" type="submit" id="submit"
-				value="確定"> <input type="reset" value="重設">
-		</p>
+		<div>
+			<table style="border: 0;">
+				<tr>
+					<td style="text-align: center;">帳號:</td>
+					<td><input type="text" name="User_Account" required size="20"
+						style="margin: 0.5em 0 0 0;" id="account"> <span
+						id="message"></span></td>
+					<td><input type="button" name="aa" value="驗證"
+						onClick="check()" required size="20" class="register-submit"></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">密碼:</td>
+					<td><input type="text" name="User_Password" id="pw1"
+						autocomplete="off" pattern="[a-zA-Z0-9]{8,16}"
+						placeholder="請輸入8-16位字元" required size="20"
+						style="margin: 0.5em 0 0 0;"></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">確認密碼:</td>
+					<td><input type="text" name="confirm_Password" id="pw2"
+						autocomplete="off" pattern="[a-zA-Z0-9]{8,16}"
+						placeholder="再一次輸入密碼" onkeyup="checkpw()" required size="20"
+						style="margin: 0.5em 0 0 0;"><span id="chk"></span></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">暱稱:</td>
+					<td><input type="text" name="User_Name" required size="20"
+						style="margin: 0.5em 0 0 0;"></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">性別:</td>
+					<td><input type="radio" id="male" name="User_Gender" required
+						value="1" style="margin: 0.5em 0 0 0;"> <label for="male">男</label>
+						<input type="radio" id="female" name="User_Gender" value="0"
+						required style="margin: 0 0 0 0.1em;"> <label for="female">女</label></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">信箱:</td>
+					<td><input type="email" name="User_Email" required size="20"
+						style="margin: 0;"></td>
+				<tr>
+					<td style="text-align: center;">生日:</td>
+					<td><input type="date" name="User_Birthday" required size="20"
+						style="margin: 0.5em 0 0 0; width: 85%;"></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">輸入驗證碼:</td>
+					<td><input type="text" name="LoginCheckImage" id="Image"
+						size="20" style="margin: 0.5em 0 0 0;"></td>
+					<td><div>
+							<img src="LoginCheckImage.jsp" alt="newImage">
+						</div></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><span> <%
+ 	if (session.getAttribute("RegisterResult") != null)
+ 		out.print("<font style='color:red'>" + session.getAttribute("RegisterResult") + "</font>");
+ 	session.removeAttribute("RegisterResult");
+ %>
+					</span></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input style="margin: 0.5em 1em 0 0;" type="submit"
+						id="submit" value="確定"><input type="reset" value="重設"></td>
+				</tr>
+			</table>
+		</div>
 	</form>
 	<script src="../files/js/main2.js"></script>
 </body>
